@@ -1,11 +1,90 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/color_F5F5F5</item>
     </style>
+
+    <!-- ToolBar菜单样式 -->
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="actionMenuTextColor">@color/menu_color</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <declare-styleable name="WPTShapeTextView">
+        <attr name="tv_radius" format="dimension" />
+        <attr name="tv_radius_top_left" format="dimension" />
+        <attr name="tv_radius_top_right" format="dimension" />
+        <attr name="tv_radius_bottom_left" format="dimension" />
+        <attr name="tv_radius_bottom_right" format="dimension" />
+        <attr name="tv_solidColor" format="color" />
+        <attr name="tv_strokeWidth" format="dimension" />
+        <attr name="tv_strokeColor" format="color" />
+        <!--press-->
+        <attr name="tv_pressSolidColor" format="color" />
+        <!--selected-->
+        <attr name="tv_selectedStrokeColor" format="color" />
+        <attr name="tv_selectedSolidColor" format="color" />
+        <attr name="tv_selectedTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="WPTShapeEditText">
+        <attr name="et_radius" format="dimension" />
+        <attr name="et_solidColor" format="color" />
+        <attr name="et_strokeWidth" format="dimension" />
+        <attr name="et_strokeColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="WPTShapeLinearLayout">
+        <attr name="ll_radius" format="dimension" />
+        <attr name="ll_radius_top_left" format="dimension" />
+        <attr name="ll_radius_top_right" format="dimension" />
+        <attr name="ll_radius_bottom_left" format="dimension" />
+        <attr name="ll_radius_bottom_right" format="dimension" />
+        <attr name="ll_solidColor" format="color" />
+        <attr name="ll_strokeWidth" format="dimension" />
+        <attr name="ll_strokeColor" format="color" />
+        <!--press-->
+        <attr name="ll_pressSolidColor" format="color" />
+        <!--selected-->
+        <attr name="ll_selectedStrokeColor" format="color" />
+        <attr name="ll_selectedSolidColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="WPTShapeRelativeLayout">
+        <attr name="rl_radius" format="dimension" />
+        <attr name="rl_radius_top_left" format="dimension" />
+        <attr name="rl_radius_top_right" format="dimension" />
+        <attr name="rl_radius_bottom_left" format="dimension" />
+        <attr name="rl_radius_bottom_right" format="dimension" />
+        <attr name="rl_solidColor" format="color" />
+        <attr name="rl_strokeWidth" format="dimension" />
+        <attr name="rl_strokeColor" format="color" />
+        <!--press-->
+        <attr name="rl_pressSolidColor" format="color" />
+        <!--selected-->
+        <attr name="rl_selectedStrokeColor" format="color" />
+        <attr name="rl_selectedSolidColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="WPTShapeConstraintLayout">
+        <attr name="cl_radius" format="dimension" />
+        <attr name="cl_radius_top_left" format="dimension" />
+        <attr name="cl_radius_top_right" format="dimension" />
+        <attr name="cl_radius_bottom_left" format="dimension" />
+        <attr name="cl_radius_bottom_right" format="dimension" />
+        <attr name="cl_solidColor" format="color" />
+        <attr name="cl_strokeWidth" format="dimension" />
+        <attr name="cl_strokeColor" format="color" />
+        <!--press-->
+        <attr name="cl_pressSolidColor" format="color" />
+        <!--selected-->
+        <attr name="cl_selectedStrokeColor" format="color" />
+        <attr name="cl_selectedSolidColor" format="color" />
+    </declare-styleable>
 
 </resources>

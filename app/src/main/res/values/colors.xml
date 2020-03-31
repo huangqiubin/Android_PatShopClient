@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#FFD904</color>
+    <color name="colorPrimaryDark">#FFD904</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="menu_color">#1976D2</color>
+
+    <color name="color_FFFFFF">#FFFFFF</color>
+    <color name="color_A8FFFFFF">#A8FFFFFF</color>
+    <color name="color_555555">#555555</color>
+    <color name="color_FAFBFF">#FAFBFF</color>
+    <color name="color_F5F5F5">#F5F5F5</color>
+    <color name="color_999A9C">#999A9C</color>
+    <color name="color_EEEEEE">#EEEEEE</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_AB3B3A">#AB3B3A</color>
+    <color name="color_FFD900">#C9FFD900</color>
+    <color name="color_FFFFD900">#FFD900</color>
+    <color name="color_AAAAAA">#AAAAAA</color>
+    <color name="color_202023">#202023</color>
+    <color name="color_797979">#797979</color>
+    <color name="color_575757">#575757</color>
+    <color name="color_F2F2F2">#F2F2F2</color>
+    <color name="color_EAEAEA">#EAEAEA</color>
+    <color name="color_F9F9F9">#F9F9F9</color>
+
 </resources>
