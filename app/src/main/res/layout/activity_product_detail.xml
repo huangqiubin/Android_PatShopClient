@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_F5F5F5"
+    tools:context="com.example.patshopclient.home.activity.ProductDetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/color_FFD900"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:adjustViewBounds="true"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:src="@drawable/icon_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="拍品详情"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/toolbar_text_size"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/ll_auto_bid"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_F5F5F5">
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="223dp"
+                app:indicator_selected_color="@color/color_FFD900"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RelativeLayout
+                android:id="@+id/rl_product_introduce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_FFFFFF"
+                app:layout_constraintTop_toBottomOf="@+id/banner">
+
+                <ImageView
+                    android:id="@+id/iv_bid"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/icon_bid" />
+
+                <TextView
+                    android:id="@+id/tv_product_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toRightOf="@+id/iv_bid"
+                    android:lineSpacingMultiplier="1.3"
+                    android:maxLines="2"
+                    android:textColor="@color/color_202023"
+                    android:textSize="16sp"
+                    tools:text="10元话费充值卡三网可充10元话费充值卡三网可充10元话费充值卡三网可充" />
+
+                <com.example.patshopclient.widgets.WPTShapeTextView
+                    android:id="@+id/btn_onlookers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_product_name"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:paddingLeft="6dp"
+                    android:paddingTop="2dp"
+                    android:paddingRight="6dp"
+                    android:paddingBottom="2dp"
+                    android:text="+ 围观"
+                    android:textColor="@color/color_FFD900"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:tv_radius="4dp"
+                    app:tv_strokeColor="@color/color_FFD900"
+                    app:tv_strokeWidth="1dp" />
+
+                <ImageView
+                    android:id="@+id/iv_onlooker"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_below="@+id/tv_product_name"
+                    android:layout_marginRight="4dp"
+                    android:layout_toRightOf="@+id/iv_bid"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icon_people" />
+
+                <TextView
+                    android:id="@+id/tv_onlookers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_product_name"
+                    android:layout_marginRight="16dp"
+                    android:layout_toRightOf="@+id/iv_onlooker"
+                    android:textColor="@color/color_797979"
+                    android:textSize="14sp"
+                    tools:text="围观 45人" />
+
+                <ImageView
+                    android:id="@+id/iv_bid_number"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_below="@+id/tv_product_name"
+                    android:layout_marginRight="4dp"
+                    android:layout_toRightOf="@+id/tv_onlookers"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icon_bid_797979" />
+
+                <TextView
+                    android:id="@+id/tv_bid_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_product_name"
+                    android:layout_toRightOf="@+id/iv_bid_number"
+                    android:textColor="@color/color_797979"
+                    android:textSize="14sp"
+                    tools:text="出价 45人" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/color_202023"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_bid"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/rl_product_introduce">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@color/color_575757"
+                    android:gravity="end|center_vertical"
+                    android:text="当前价"
+                    android:textColor="@color/color_FFD900"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_current_price"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@color/color_575757"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_FFD900"
+                    android:textSize="26sp"
+                    tools:text=" ¥3.86" />
+
+                <TextView
+                    android:id="@+id/tv_market_price"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:background="@color/color_575757"
+                    android:gravity="center"
+                    android:textColor="@color/color_FFFFFF"
+                    android:textSize="16sp"
+                    tools:text="市场价\n¥500" />
+
+                <com.example.patshopclient.widgets.WPTTimeTextView
+                    android:id="@+id/tv_coun_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_remain_time"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:background="@color/color_FFD900"
+                    android:gravity="center"
+                    android:textColor="@color/color_202023"
+                    android:textSize="14sp"
+                    tools:text="距离结束仅剩\n00 : 00 : 05" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_product_service"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/color_FFFFFF"
+                app:layout_constraintTop_toBottomOf="@+id/ll_bid">
+
+                <com.example.patshopclient.widgets.WPTShapeLinearLayout
+                    android:id="@+id/ll_service"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="horizontal"
+                    app:ll_radius="10dp"
+                    app:ll_solidColor="@color/color_F2F2F2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/circle"
+                        android:gravity="center"
+                        android:paddingLeft="15dp"
+                        android:text="正品保证"
+                        android:textColor="@color/color_333333"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/circle"
+                        android:gravity="center"
+                        android:paddingLeft="15dp"
+                        android:text="最低风险"
+                        android:textColor="@color/color_333333"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/circle"
+                        android:gravity="center"
+                        android:paddingLeft="15dp"
+                        android:text="快速发货"
+                        android:textColor="@color/color_333333"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/circle"
+                        android:gravity="center"
+                        android:paddingLeft="15dp"
+                        android:text="公平公正"
+                        android:textColor="@color/color_333333"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </com.example.patshopclient.widgets.WPTShapeLinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/ll_service"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingLeft="35dp">
+
+                        <TextView
+                            android:id="@+id/tv_start_Price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="起拍价：0.5 元"
+                            android:textColor="@color/color_202023"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_handling_fee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="手续费：2 拍币/次"
+                            android:textColor="@color/color_202023"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_market_price2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="市场价：500 元"
+                            android:textColor="@color/color_202023"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingLeft="20dp">
+
+                        <TextView
+                            android:id="@+id/tv_markup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="加价幅度：0.5 拍币"
+                            android:textColor="@color/color_202023"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_refund_rate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="退币比例：20 %"
+                            android:textColor="@color/color_202023"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColor="@color/color_202023"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_bid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_FFFFFF"
+                app:layout_constraintTop_toBottomOf="@+id/rl_product_service" />
+
+            <LinearLayout
+                android:id="@+id/ll_tab"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_bid">
+
+                <TextView
+                    android:id="@+id/tv_product_detail"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="商品详情"
+                    android:textColor="@color/select_ffd900_333333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_previous_transactions"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="往期成交"
+                    android:textColor="@color/select_ffd900_333333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_rule_description"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="规则说明"
+                    android:textColor="@color/select_ffd900_333333"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_product_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/ll_tab">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_product_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_previous_transactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/ll_tab">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_previous_transactions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_rule_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/ll_tab">
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_auto_bid"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_202023"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/tv_increase_bid_time"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1.5"
+            android:gravity="center_vertical|end"
+            android:text="自动出价：+"
+            android:textColor="@color/color_FFD900"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_show_bid_time"
+            android:layout_width="52dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/color_EAEAEA"
+            android:gravity="center"
+            android:textColor="@color/color_333333"
+            android:textSize="16sp"
+            tools:text="3" />
+
+        <TextView
+            android:id="@+id/tv_decrease_bid_time"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="-"
+            android:textColor="@color/color_FFD900"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btn_bid"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_weight="1.5"
+            android:background="@color/color_FFD900"
+            android:gravity="center"
+            android:textColor="@color/color_333333"
+            android:textSize="18sp"
+            tools:text="出价\n2/拍币" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
