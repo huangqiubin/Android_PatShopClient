@@ -12,4 +12,6 @@ public class CommunityModel extends BaseModel {
     public CommunityModel(Application application) {
         super(application);
     }
+
+
 }

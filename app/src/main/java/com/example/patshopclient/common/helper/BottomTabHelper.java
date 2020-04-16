@@ -16,6 +16,7 @@ import com.blankj.utilcode.util.ObjectUtils;
 import com.example.android_patshopclient.R;
 import com.example.patshopclient.home.fragment.CommunityFragment;
 import com.example.patshopclient.home.fragment.MainHomeFragment;
+import com.example.patshopclient.home.fragment.MineFragment;
 
 /**
  * Created by qiubin on 2020-03-13.
@@ -39,6 +40,7 @@ public class BottomTabHelper implements View.OnClickListener {
 
     private MainHomeFragment homeFragment;
     private CommunityFragment communityFragment;
+    private MineFragment mineFragment;
     private FragmentManager fragmentManager;
 
     private BottomTabClickListener bottomTabClickListener;
@@ -92,24 +94,26 @@ public class BottomTabHelper implements View.OnClickListener {
             case R.id.rl_home:
                 resetSelected();
                 ivHome.setImageResource(R.drawable.icon_home);
-                tvHome.setTextColor(Color.parseColor("#B9463D"));
+                tvHome.setTextColor(Color.parseColor("#FFD900"));
                 switchFragment(0);
                 break;
             case R.id.rl_community:
                 resetSelected();
                 ivCommunity.setImageResource(R.drawable.icon_community);
-                tvCommunity.setTextColor(Color.parseColor("#B9463D"));
+                tvCommunity.setTextColor(Color.parseColor("#FFD900"));
                 switchFragment(1);
                 break;
             case R.id.rl_activity:
                 resetSelected();
                 ivActivity.setImageResource(R.drawable.icon_activity);
-                tvActivity.setTextColor(Color.parseColor("#B9463D"));
+                tvActivity.setTextColor(Color.parseColor("#FFD900"));
+                switchFragment(2);
                 break;
             case R.id.rl_mine:
                 resetSelected();
                 ivMe.setImageResource(R.drawable.icon_me);
-                tvMe.setTextColor(Color.parseColor("#B9463D"));
+                tvMe.setTextColor(Color.parseColor("#FFD900"));
+                switchFragment(3);
                 break;
 
         }
@@ -124,10 +128,10 @@ public class BottomTabHelper implements View.OnClickListener {
         ivActivity.setImageResource(R.drawable.icon_activity_unselect);
         ivMe.setImageResource(R.drawable.icon_me_unselect);
 
-        tvHome.setTextColor(Color.parseColor("#B9463D"));
-        tvCommunity.setTextColor(Color.parseColor("#B9463D"));
-        tvActivity.setTextColor(Color.parseColor("#B9463D"));
-        tvMe.setTextColor(Color.parseColor("#B9463D"));
+        tvHome.setTextColor(Color.parseColor("#999A9C"));
+        tvCommunity.setTextColor(Color.parseColor("#999A9C"));
+        tvActivity.setTextColor(Color.parseColor("#999A9C"));
+        tvMe.setTextColor(Color.parseColor("#999A9C"));
     }
 
     /**
@@ -136,8 +140,7 @@ public class BottomTabHelper implements View.OnClickListener {
      * @param index
      */
     private void switchFragment(int index) {
-        FragmentTransaction fragmentTransaction = null;
-        fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         switch (index) {
             case 0:
                 if (ObjectUtils.isEmpty(homeFragment)) {
@@ -162,8 +165,15 @@ public class BottomTabHelper implements View.OnClickListener {
             case 2:
 
                 break;
-
             case 3:
+                if (ObjectUtils.isEmpty(mineFragment)) {
+                    mineFragment = new MineFragment();
+                    fragmentTransaction.add(R.id.fl_content, mineFragment);
+                }
+                hideFragments(fragmentTransaction);
+                fragmentTransaction.show(mineFragment);
+                fragmentTransaction.commit();
+                this.index = 3;
                 break;
         }
     }
@@ -177,6 +187,9 @@ public class BottomTabHelper implements View.OnClickListener {
         }
         if (ObjectUtils.isNotEmpty(communityFragment)) {
             fragmentTransaction.hide(communityFragment);
+        }
+        if (ObjectUtils.isNotEmpty(mineFragment)) {
+            fragmentTransaction.hide(mineFragment);
         }
     }
 

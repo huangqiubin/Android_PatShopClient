@@ -87,4 +87,10 @@
         <attr name="cl_selectedSolidColor" format="color" />
     </declare-styleable>
 
+    <style name="MyTabTextStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

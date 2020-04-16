@@ -33,11 +33,11 @@
 
             <ImageView
                 android:id="@+id/iv_home"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp"
-                android:scaleType="fitXY"
+                android:layout_marginTop="2dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/icon_home" />
 
             <TextView
@@ -50,7 +50,7 @@
                 android:gravity="center"
                 android:text="@string/main_home"
                 android:textColor="@color/color_999A9C"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
         </RelativeLayout>
 
@@ -66,11 +66,12 @@
 
             <ImageView
                 android:id="@+id/iv_community"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp"
-                android:scaleType="fitXY"
+                android:layout_marginTop="2dp"
+                android:padding="3dp"
+                android:scaleType="center"
                 android:src="@drawable/icon_community" />
 
             <TextView
@@ -83,7 +84,7 @@
                 android:gravity="center"
                 android:text="@string/main_community"
                 android:textColor="@color/color_999A9C"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
         </RelativeLayout>
 
@@ -99,11 +100,12 @@
 
             <ImageView
                 android:id="@+id/iv_activity"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp"
-                android:scaleType="fitXY"
+                android:padding="3dp"
+                android:layout_marginTop="2dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/icon_activity" />
 
             <TextView
@@ -116,7 +118,7 @@
                 android:gravity="center"
                 android:text="@string/main_activity"
                 android:textColor="@color/color_999A9C"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
         </RelativeLayout>
 
@@ -132,11 +134,11 @@
 
             <ImageView
                 android:id="@+id/iv_mine"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp"
-                android:scaleType="fitXY"
+                android:layout_marginTop="2dp"
+                android:scaleType="center"
                 android:src="@drawable/icon_me" />
 
             <TextView
@@ -149,7 +151,7 @@
                 android:gravity="center"
                 android:text="@string/main_mine"
                 android:textColor="@color/color_999A9C"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
         </RelativeLayout>
 

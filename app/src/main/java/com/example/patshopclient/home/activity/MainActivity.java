@@ -10,7 +10,7 @@ import com.example.android_patshopclient.R;
 import com.example.patshopclient.common.BaseActivity;
 import com.example.patshopclient.common.helper.BottomTabHelper;
 
-@Route(path = "/home/activity/home")
+@Route(path = "/home/activity/main")
 public class MainActivity extends BaseActivity {
 
     private FrameLayout flContent;
