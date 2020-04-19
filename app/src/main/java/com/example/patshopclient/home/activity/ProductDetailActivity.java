@@ -125,6 +125,7 @@ public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewMod
     public void initParam() {
         super.initParam();
         productId = getIntent().getIntExtra(PRODUCTID, 0);
+        //默认选中商品详情
         setSelect(0);
         switchView(0);
     }
@@ -185,9 +186,9 @@ public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewMod
                     tvProductName.setText(product1DaoBean.getName());
                     tvOnlookers.setText("围观 " + product1DaoBean.getOnlookers() + "人");
                     tvBidNumber.setText("出价 " + product1DaoBean.getBids() + "人");
-                    tvCurrentPrice.setText(" ¥" + product1DaoBean.getCurrent_price());
-                    tvMarketPrice.setText("市场价\n¥ " + product1DaoBean.getMarket_Price());
-                    tvRemainTime1.setDeadLine(TimeUtils.date2Millis(product1DaoBean.getBid_Countdown()));
+                    tvCurrentPrice.setText(" ¥" + product1DaoBean.getCurrentprice());
+                    tvMarketPrice.setText("市场价\n¥ " + product1DaoBean.getMarketPrice());
+                    tvRemainTime1.setDeadLine(TimeUtils.date2Millis(product1DaoBean.getBidCountdown()));
                     if (!tvRemainTime1.isRun()) {
                         tvRemainTime1.run();
                     }
@@ -201,11 +202,11 @@ public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewMod
                             tvRemainTime.setText(spannableStringBuilder);
                         }
                     });
-                    tvStartPrice.setText("起拍价： " + product1DaoBean.getStart_Price() + " 拍币");
-                    tvHandlingFee.setText("手续费：" + product1DaoBean.getHandling_Fee() + " 拍币/次");
-                    tvMarketPrice2.setText("市场价：" + product1DaoBean.getMarket_Price() + " 元");
+                    tvStartPrice.setText("起拍价： " + product1DaoBean.getStartPrice() + " 拍币");
+                    tvHandlingFee.setText("手续费：" + product1DaoBean.getHandlingFee() + " 拍币/次");
+                    tvMarketPrice2.setText("市场价：" + product1DaoBean.getMarketPrice() + " 元");
                     tvMarkUp.setText("加价幅度： " + product1DaoBean.getMarkup() + " 拍币");
-                    tvRefundRate.setText("退币比例： " + product1DaoBean.getRefund_Rate() + " %");
+                    tvRefundRate.setText("退币比例： " + product1DaoBean.getRefundRate() + " %");
                     String[] picArray = product1DaoBean.getPic().split(",");
                     List<String> picList = new ArrayList<>();
                     for (int i = 0; i < picArray.length; i++) {
@@ -220,7 +221,7 @@ public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewMod
                             Log.d("huangqb", "dsdsd");
                         }
                     }, 10000);
-                    String[] albumPics = productDetailDTO.getData().getPmsProduct1Dao().getAlbum_Pics().split(",");
+                    String[] albumPics = productDetailDTO.getData().getPmsProduct1Dao().getAlbumPics().split(",");
                     List<String> detailPicList = new ArrayList<>();
                     for (int i = 0; i < albumPics.length; i++) {
                         detailPicList.add(ImageConfig.IMAGEPREFIX + albumPics[i]);

@@ -46,7 +46,7 @@ public class MainActivityViewModel extends BaseViewModel<MainActivityModel> {
 
             @Override
             public void onError(Throwable e) {
-                getUC().getShowNetWorkErrViewEvent().postValue(true);
+//                getUC().getShowNetWorkErrViewEvent().postValue(true);
             }
 
             @Override

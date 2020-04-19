@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.android_patshopclient.R;
 import com.example.patshopclient.common.mvvm.BaseMvvmFragment;
+import com.example.patshopclient.home.factory.ActivityViewModelFactory;
 import com.example.patshopclient.home.viewmodel.ActivityViewModel;
 
 /**
@@ -36,12 +37,12 @@ public class ActivityFragment extends BaseMvvmFragment<ActivityViewModel> {
 
     @Override
     public Class<ActivityViewModel> onBindViewModel() {
-        return null;
+        return ActivityViewModel.class;
     }
 
     @Override
     public ViewModelProvider.Factory onBindViewModelFactory() {
-        return null;
+        return ActivityViewModelFactory.getInstance(mActivity.getApplication());
     }
 
     @Override

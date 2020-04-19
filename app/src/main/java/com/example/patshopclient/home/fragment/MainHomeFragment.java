@@ -182,7 +182,7 @@ public class MainHomeFragment extends BaseMvvmFragment<MainActivityViewModel> {
                         BidProductFragment bidProductFragment = new BidProductFragment();
                         Bundle bundle = new Bundle();
                         bundle.putInt("position", i + 1);
-                        bundle.putString("title", homeContentDTO.getData().getProductCategoryDaoList().get(i).getCategory_Name());
+                        bundle.putString("title", homeContentDTO.getData().getProductCategoryDaoList().get(i).getCategoryName());
                         bidProductFragment.setArguments(bundle);
                         fragmentList.add(bidProductFragment);
                     }

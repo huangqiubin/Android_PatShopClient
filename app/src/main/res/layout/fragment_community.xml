@@ -59,14 +59,16 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/color_FFFFFF"
                 android:orientation="horizontal"
-                android:paddingBottom="10dp">
+                android:paddingBottom="10dp"
+                app:layout_scrollFlags="scroll">
 
 
                 <LinearLayout
@@ -81,7 +83,7 @@
                         android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="20dp"
-                        android:background="@drawable/circle_797979"
+                        android:background="@drawable/circle_cf333333"
                         android:padding="6dp">
 
                         <ImageView
@@ -148,7 +150,7 @@
                         android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="20dp"
-                        android:background="@drawable/circle_797979"
+                        android:background="@drawable/circle_cf333333"
                         android:padding="5dp">
 
                         <ImageView
@@ -225,8 +227,11 @@
                     android:layout_height="35dp"
                     android:layout_gravity="top"
                     android:layout_marginBottom="8dp"
-                    app:tabIndicatorHeight="0dp"
-                    app:tabMode="scrollable"
+                    app:tabIndicatorColor="@color/color_FFD900"
+                    app:tabIndicatorGravity="bottom"
+                    app:tabIndicatorHeight="1dp"
+                    app:tabMaxWidth="0dp"
+                    app:tabMode="fixed"
                     app:tabSelectedTextColor="@color/color_FFD900"
                     app:tabTextAppearance="@style/MyTabTextStyle"
                     app:tabTextColor="@color/color_333333" />

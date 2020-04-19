@@ -24,9 +24,9 @@ android {
         }
 
         manifestPlaceholders = [
-                JPUSH_PKGNAME : "com.example.android_patshopclient",
+                JPUSH_PKGNAME: "com.example.android_patshopclient",
                 JPUSH_APPKEY : "45156b383ca21c373834e571", //Portal上注册的包名对应的 appKey.
-                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
     }
 
@@ -73,7 +73,6 @@ dependencies {
     implementation 'com.alibaba:arouter-api:1.5.0'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
     implementation 'com.android.support:multidex:1.0.3'
-
     implementation 'cn.jiguang.sdk:jverification:2.3.4'  // 此处以2.3.4 版本为例。
     implementation 'cn.jiguang.sdk:jcore:2.1.2'  // 此处以JCore 2.1.2 版本为例。
 }

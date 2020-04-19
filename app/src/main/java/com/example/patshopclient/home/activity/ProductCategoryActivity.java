@@ -1,20 +1,25 @@
 package com.example.patshopclient.home.activity;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.blankj.utilcode.util.BarUtils;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.example.android_patshopclient.R;
 import com.example.lib_http.entity.home.HomeBidProductDTO;
+import com.example.lib_http.util.LogUtils;
 import com.example.patshopclient.common.baseview.NoDataView;
 import com.example.patshopclient.common.mvvm.BaseMvvmActivity;
 import com.example.patshopclient.home.adapter.BidProductAdapter;
@@ -76,6 +81,16 @@ public class ProductCategoryActivity extends BaseMvvmActivity<MainActivityViewMo
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        bidProductAdapter.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(@NonNull BaseQuickAdapter adapter, @NonNull View view, int position) {
+                LogUtils.iTag("huangqiubin", "商品列表点击事件");
+                HomeBidProductDTO.DataBean.HomeProductDaoListBean homeProductDaoListBean = (HomeBidProductDTO.DataBean.HomeProductDaoListBean) adapter.getData().get(position);
+                int productId = homeProductDaoListBean.getProductId();
+                Intent intent = new Intent(ProductCategoryActivity.this, ProductDetailActivity.class);
+                intent.putExtra(ProductDetailActivity.PRODUCTID, 28);
+                startActivity(intent);
             }
         });
     }

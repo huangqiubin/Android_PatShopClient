@@ -85,28 +85,28 @@ public class ProductDetailDTO {
              */
 
             private int id;
-            private String gmt_Create;
-            private String gmt_Modified;
-            private int product_Category_Id;
+            private String gmtCreate;
+            private String gmtModified;
+            private int productCategoryId;
             private String name;
             private String pic;
-            private int delete_Status;
+            private int deleteStatus;
             private int sale;
-            private double market_Price;
-            private double current_price;
-            private String historical_Pat_Coin;
-            private String sub_Title;
+            private double marketPrice;
+            private double currentprice;
+            private String historicalPatCoin;
+            private String subTitle;
             private int stock;
-            private String service_Ids;
+            private String serviceIds;
             private String keywords;
-            private String album_Pics;
-            private String category_Name;
+            private String albumPics;
+            private String categoryName;
             private int bids;
             private int onlookers;
-            private Date bid_Countdown;
-            private double start_Price;
-            private int refund_Rate;
-            private double handling_Fee;
+            private Date bidCountdown;
+            private double startPrice;
+            private int refundRate;
+            private double handlingFee;
             private double markup;
 
             public int getId() {
@@ -117,28 +117,28 @@ public class ProductDetailDTO {
                 this.id = id;
             }
 
-            public String getGmt_Create() {
-                return gmt_Create;
+            public String getGmtCreate() {
+                return gmtCreate;
             }
 
-            public void setGmt_Create(String gmt_Create) {
-                this.gmt_Create = gmt_Create;
+            public void setGmtCreate(String gmtCreate) {
+                this.gmtCreate = gmtCreate;
             }
 
-            public String getGmt_Modified() {
-                return gmt_Modified;
+            public String getGmtModified() {
+                return gmtModified;
             }
 
-            public void setGmt_Modified(String gmt_Modified) {
-                this.gmt_Modified = gmt_Modified;
+            public void setGmtModified(String gmtModified) {
+                this.gmtModified = gmtModified;
             }
 
-            public int getProduct_Category_Id() {
-                return product_Category_Id;
+            public int getProductCategoryId() {
+                return productCategoryId;
             }
 
-            public void setProduct_Category_Id(int product_Category_Id) {
-                this.product_Category_Id = product_Category_Id;
+            public void setProductCategoryId(int productCategoryId) {
+                this.productCategoryId = productCategoryId;
             }
 
             public String getName() {
@@ -157,12 +157,12 @@ public class ProductDetailDTO {
                 this.pic = pic;
             }
 
-            public int getDelete_Status() {
-                return delete_Status;
+            public int getDeleteStatus() {
+                return deleteStatus;
             }
 
-            public void setDelete_Status(int delete_Status) {
-                this.delete_Status = delete_Status;
+            public void setDeleteStatus(int deleteStatus) {
+                this.deleteStatus = deleteStatus;
             }
 
             public int getSale() {
@@ -173,28 +173,36 @@ public class ProductDetailDTO {
                 this.sale = sale;
             }
 
-            public double getMarket_Price() {
-                return market_Price;
+            public double getMarketPrice() {
+                return marketPrice;
             }
 
-            public void setMarket_Price(double market_Price) {
-                this.market_Price = market_Price;
+            public void setMarketPrice(double marketPrice) {
+                this.marketPrice = marketPrice;
             }
 
-            public String getHistorical_Pat_Coin() {
-                return historical_Pat_Coin;
+            public double getCurrentprice() {
+                return currentprice;
             }
 
-            public void setHistorical_Pat_Coin(String historical_Pat_Coin) {
-                this.historical_Pat_Coin = historical_Pat_Coin;
+            public void setCurrentprice(double currentprice) {
+                this.currentprice = currentprice;
             }
 
-            public String getSub_Title() {
-                return sub_Title;
+            public String getHistoricalPatCoin() {
+                return historicalPatCoin;
             }
 
-            public void setSub_Title(String sub_Title) {
-                this.sub_Title = sub_Title;
+            public void setHistoricalPatCoin(String historicalPatCoin) {
+                this.historicalPatCoin = historicalPatCoin;
+            }
+
+            public String getSubTitle() {
+                return subTitle;
+            }
+
+            public void setSubTitle(String subTitle) {
+                this.subTitle = subTitle;
             }
 
             public int getStock() {
@@ -205,12 +213,12 @@ public class ProductDetailDTO {
                 this.stock = stock;
             }
 
-            public String getService_Ids() {
-                return service_Ids;
+            public String getServiceIds() {
+                return serviceIds;
             }
 
-            public void setService_Ids(String service_Ids) {
-                this.service_Ids = service_Ids;
+            public void setServiceIds(String serviceIds) {
+                this.serviceIds = serviceIds;
             }
 
             public String getKeywords() {
@@ -221,20 +229,20 @@ public class ProductDetailDTO {
                 this.keywords = keywords;
             }
 
-            public String getAlbum_Pics() {
-                return album_Pics;
+            public String getAlbumPics() {
+                return albumPics;
             }
 
-            public void setAlbum_Pics(String album_Pics) {
-                this.album_Pics = album_Pics;
+            public void setAlbumPics(String albumPics) {
+                this.albumPics = albumPics;
             }
 
-            public String getCategory_Name() {
-                return category_Name;
+            public String getCategoryName() {
+                return categoryName;
             }
 
-            public void setCategory_Name(String category_Name) {
-                this.category_Name = category_Name;
+            public void setCategoryName(String categoryName) {
+                this.categoryName = categoryName;
             }
 
             public int getBids() {
@@ -253,36 +261,36 @@ public class ProductDetailDTO {
                 this.onlookers = onlookers;
             }
 
-            public Date getBid_Countdown() {
-                return bid_Countdown;
+            public Date getBidCountdown() {
+                return bidCountdown;
             }
 
-            public void setBid_Countdown(Date bid_Countdown) {
-                this.bid_Countdown = bid_Countdown;
+            public void setBidCountdown(Date bidCountdown) {
+                this.bidCountdown = bidCountdown;
             }
 
-            public double getStart_Price() {
-                return start_Price;
+            public double getStartPrice() {
+                return startPrice;
             }
 
-            public void setStart_Price(double start_Price) {
-                this.start_Price = start_Price;
+            public void setStartPrice(double startPrice) {
+                this.startPrice = startPrice;
             }
 
-            public int getRefund_Rate() {
-                return refund_Rate;
+            public int getRefundRate() {
+                return refundRate;
             }
 
-            public void setRefund_Rate(int refund_Rate) {
-                this.refund_Rate = refund_Rate;
+            public void setRefundRate(int refundRate) {
+                this.refundRate = refundRate;
             }
 
-            public double getHandling_Fee() {
-                return handling_Fee;
+            public double getHandlingFee() {
+                return handlingFee;
             }
 
-            public void setHandling_Fee(double handling_Fee) {
-                this.handling_Fee = handling_Fee;
+            public void setHandlingFee(double handlingFee) {
+                this.handlingFee = handlingFee;
             }
 
             public double getMarkup() {
@@ -291,14 +299,6 @@ public class ProductDetailDTO {
 
             public void setMarkup(double markup) {
                 this.markup = markup;
-            }
-
-            public double getCurrent_price() {
-                return current_price;
-            }
-
-            public void setCurrent_price(double current_price) {
-                this.current_price = current_price;
             }
         }
     }

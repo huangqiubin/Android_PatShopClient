@@ -44,10 +44,10 @@ public class BidProductAdapter extends BaseQuickAdapter<HomeBidProductDTO.DataBe
         layoutParams.height = AdaptScreenUtils.pt2Px(100);
         ivProduct.setLayoutParams(layoutParams);
         Glide.with(mContext).load(homeProductDaoListBean.getPic()).into(ivProduct);
-        baseViewHolder.setText(R.id.tv_introduction, homeProductDaoListBean.getProduct_Name())
-                .setText(R.id.tv_pat_coin, "拍拍币：" + homeProductDaoListBean.getPat_Price())
-                .setText(R.id.tv_pat_count, "已出价 " + homeProductDaoListBean.getBid_Count() + "次")
-                .setText(R.id.tv_market_price, "¥ " + homeProductDaoListBean.getMarket_Price());
+        baseViewHolder.setText(R.id.tv_introduction, homeProductDaoListBean.getProductName())
+                .setText(R.id.tv_pat_coin, "拍拍币：" + homeProductDaoListBean.getPatPrice())
+                .setText(R.id.tv_pat_count, "已出价 " + homeProductDaoListBean.getBidCount() + "次")
+                .setText(R.id.tv_market_price, "¥ " + homeProductDaoListBean.getMarketPrice());
     }
 
 }

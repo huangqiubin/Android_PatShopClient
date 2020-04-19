@@ -1,12 +1,20 @@
 package com.example.patshopclient.home.fragment;
 
+import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.ObjectUtils;
 import com.example.android_patshopclient.R;
+import com.example.patshopclient.common.baseview.NoDataView;
 import com.example.patshopclient.common.mvvm.BaseMvvmFragment;
+import com.example.patshopclient.home.adapter.TopicAdapter;
+import com.example.patshopclient.home.factory.CommunityViewModelFactory;
 import com.example.patshopclient.home.factory.MainViewModelFactory;
 import com.example.patshopclient.home.viewmodel.CommunityViewModel;
 
@@ -16,10 +24,19 @@ import com.example.patshopclient.home.viewmodel.CommunityViewModel;
  */
 public class TopicFragment extends BaseMvvmFragment<CommunityViewModel> {
 
+    private int position;
+    private String title;
     private RecyclerView recyclerView;
+    private TopicAdapter topicAdapter;
+
+
     @Override
     public void initView(View view) {
         recyclerView = rootView.findViewById(R.id.recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        topicAdapter = new TopicAdapter(R.layout.item_topic, null);
+        topicAdapter.setEmptyView(new NoDataView(getContext(), null));
+        recyclerView.setAdapter(topicAdapter);
     }
 
     @Override
@@ -28,8 +45,16 @@ public class TopicFragment extends BaseMvvmFragment<CommunityViewModel> {
     }
 
     @Override
-    public void initData() {
+    public void initParam() {
+        super.initParam();
+        Bundle bundle = getArguments();
+        position = bundle.getInt("position");
+        title = bundle.getString("title");
+    }
 
+    @Override
+    public void initData() {
+        mViewModel.httpGetHotTopic();
     }
 
     @Override
@@ -44,11 +69,18 @@ public class TopicFragment extends BaseMvvmFragment<CommunityViewModel> {
 
     @Override
     public ViewModelProvider.Factory onBindViewModelFactory() {
-        return MainViewModelFactory.getInstance(mActivity.getApplication());
+        return CommunityViewModelFactory.getInstance(mActivity.getApplication());
     }
 
     @Override
     public void initViewObservable() {
-
+        mViewModel.getHotTopicLiveEvent().observe(this, communityTopicDTO -> {
+            LogUtils.d("topic fragment get the data");
+            Log.d("hangqiubin", "LogUtil");
+            if (ObjectUtils.isEmpty(communityTopicDTO.getData().getTopicList())) {
+                return;
+            }
+            topicAdapter.addData(communityTopicDTO.getData().getTopicList());
+        });
     }
 }

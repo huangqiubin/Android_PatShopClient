@@ -271,14 +271,14 @@ public class HomeContentDTO {
              */
 
             private int id;
-            private String gmt_Create;
-            private String gmt_Modified;
-            private String category_Name;
+            private String gmtCreate;
+            private String gmtModified;
+            private String categoryName;
             private int level;
-            private Object parent_Id;
-            private String product_Unit;
-            private int nav_Status;
-            private int show_Status;
+            private Object parentId;
+            private String productUnit;
+            private int navStatus;
+            private int showStatus;
             private Object icon;
             private String keywords;
 
@@ -290,28 +290,28 @@ public class HomeContentDTO {
                 this.id = id;
             }
 
-            public String getGmt_Create() {
-                return gmt_Create;
+            public String getGmtCreate() {
+                return gmtCreate;
             }
 
-            public void setGmt_Create(String gmt_Create) {
-                this.gmt_Create = gmt_Create;
+            public void setGmtCreate(String gmtCreate) {
+                this.gmtCreate = gmtCreate;
             }
 
-            public String getGmt_Modified() {
-                return gmt_Modified;
+            public String getGmtModified() {
+                return gmtModified;
             }
 
-            public void setGmt_Modified(String gmt_Modified) {
-                this.gmt_Modified = gmt_Modified;
+            public void setGmtModified(String gmtModified) {
+                this.gmtModified = gmtModified;
             }
 
-            public String getCategory_Name() {
-                return category_Name;
+            public String getCategoryName() {
+                return categoryName;
             }
 
-            public void setCategory_Name(String category_Name) {
-                this.category_Name = category_Name;
+            public void setCategoryName(String categoryName) {
+                this.categoryName = categoryName;
             }
 
             public int getLevel() {
@@ -322,36 +322,36 @@ public class HomeContentDTO {
                 this.level = level;
             }
 
-            public Object getParent_Id() {
-                return parent_Id;
+            public Object getParentId() {
+                return parentId;
             }
 
-            public void setParent_Id(Object parent_Id) {
-                this.parent_Id = parent_Id;
+            public void setParentId(Object parentId) {
+                this.parentId = parentId;
             }
 
-            public String getProduct_Unit() {
-                return product_Unit;
+            public String getProductUnit() {
+                return productUnit;
             }
 
-            public void setProduct_Unit(String product_Unit) {
-                this.product_Unit = product_Unit;
+            public void setProductUnit(String productUnit) {
+                this.productUnit = productUnit;
             }
 
-            public int getNav_Status() {
-                return nav_Status;
+            public int getNavStatus() {
+                return navStatus;
             }
 
-            public void setNav_Status(int nav_Status) {
-                this.nav_Status = nav_Status;
+            public void setNavStatus(int navStatus) {
+                this.navStatus = navStatus;
             }
 
-            public int getShow_Status() {
-                return show_Status;
+            public int getShowStatus() {
+                return showStatus;
             }
 
-            public void setShow_Status(int show_Status) {
-                this.show_Status = show_Status;
+            public void setShowStatus(int showStatus) {
+                this.showStatus = showStatus;
             }
 
             public Object getIcon() {

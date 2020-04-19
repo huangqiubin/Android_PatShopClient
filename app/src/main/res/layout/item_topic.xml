@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@color/color_FFFFFF">
+
+    <com.example.patshopclient.widgets.WPTShapeTextView
+        android:id="@+id/tv_sec_topic_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:textColor="@color/color_FFD900"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tv_radius="14dp"
+        app:tv_strokeColor="@color/color_FFD900"
+        app:tv_strokeWidth="1dp"
+        tools:text="话题# 我买过的精选好物 " />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sec_topic_type"
+        app:riv_oval="true"
+        tools:src="@color/color_EEEEEE" />
+
+    <TextView
+        android:id="@+id/tv_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/color_FFD900"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_avatar"
+        app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
+        app:layout_constraintTop_toTopOf="@+id/iv_avatar"
+        tools:text="汉字知识君" />
+
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:textColor="@color/color_797979"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_nickname"
+        app:layout_constraintLeft_toRightOf="@+id/tv_nickname"
+        tools:text="04-14 18:25" />
+
+    <TextView
+        android:id="@+id/tv_topic_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:lineSpacingMultiplier="1.3"
+        android:textColor="@color/color_555555"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
+        tools:text="刚收到货，手机好漂亮，未拆封，未激活，原装正品，官网旗舰店值得信赖，一直纠结手机颜色，这个颜色好喜欢，客服好有耐心，谢谢了！必须给5星，下次介绍朋友来买，物流速度飞快，上午下单，下午18.30就收到了，未发现什么缺点，要是送个无线充电器就好了！哈哈！👍👍👍👍👍👍" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_topic_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_topic_content" />
+
+    <ImageView
+        android:id="@+id/iv_topic_hot_value"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="6dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icon_hot_yellow"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_topic_image" />
+
+    <TextView
+        android:id="@+id/tv_browse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:textColor="@color/color_FEAC33"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_topic_hot_value"
+        app:layout_constraintLeft_toRightOf="@+id/iv_topic_hot_value"
+        app:layout_constraintTop_toTopOf="@+id/iv_topic_hot_value"
+        tools:text="热度 916" />
+
+    <View
+        android:id="@+id/divide1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/color_EEEEEE"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_topic_hot_value" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

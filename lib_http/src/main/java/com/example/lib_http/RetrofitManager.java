@@ -6,6 +6,7 @@ import android.util.Log;
 
 
 import com.example.lib_http.config.API;
+import com.example.lib_http.service.CommunityService;
 import com.example.lib_http.service.HomeContentService;
 import com.example.lib_http.service.ProductDetailService;
 import com.example.lib_http.util.LogUtils;
@@ -109,10 +110,16 @@ public class RetrofitManager {
 
     /**
      * 创建商品详情Service
-     * @return
      */
     public ProductDetailService getProductDetailService() {
         return mRetrofit.create(ProductDetailService.class);
+    }
+
+    /**
+     * 创建首页社区热门话题Service
+     */
+    public CommunityService getCommunityService(){
+        return mRetrofit.create(CommunityService.class);
     }
 
     public void addToken(final String token) {

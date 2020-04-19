@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.blankj.utilcode.util.ObjectUtils;
 import com.example.android_patshopclient.R;
+import com.example.patshopclient.home.fragment.ActivityFragment;
 import com.example.patshopclient.home.fragment.CommunityFragment;
 import com.example.patshopclient.home.fragment.MainHomeFragment;
 import com.example.patshopclient.home.fragment.MineFragment;
@@ -40,6 +41,7 @@ public class BottomTabHelper implements View.OnClickListener {
 
     private MainHomeFragment homeFragment;
     private CommunityFragment communityFragment;
+    private ActivityFragment activityFragment;
     private MineFragment mineFragment;
     private FragmentManager fragmentManager;
 
@@ -163,7 +165,14 @@ public class BottomTabHelper implements View.OnClickListener {
                 this.index = 1;
                 break;
             case 2:
-
+                if (ObjectUtils.isEmpty(activityFragment)){
+                    activityFragment = new ActivityFragment();
+                    fragmentTransaction.add(R.id.fl_content, activityFragment);
+                }
+                hideFragments(fragmentTransaction);
+                fragmentTransaction.show(activityFragment);
+                fragmentTransaction.commit();
+                this.index = 2;
                 break;
             case 3:
                 if (ObjectUtils.isEmpty(mineFragment)) {
@@ -187,6 +196,9 @@ public class BottomTabHelper implements View.OnClickListener {
         }
         if (ObjectUtils.isNotEmpty(communityFragment)) {
             fragmentTransaction.hide(communityFragment);
+        }
+        if (ObjectUtils.isNotEmpty(activityFragment)){
+            fragmentTransaction.hide(activityFragment);
         }
         if (ObjectUtils.isNotEmpty(mineFragment)) {
             fragmentTransaction.hide(mineFragment);

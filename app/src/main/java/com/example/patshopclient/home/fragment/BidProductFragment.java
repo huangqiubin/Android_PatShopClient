@@ -2,6 +2,7 @@ package com.example.patshopclient.home.fragment;
 
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ObjectUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
@@ -49,6 +51,14 @@ public class BidProductFragment extends BaseMvvmFragment<MainActivityViewModel> 
     }
 
     @Override
+    public void initParam() {
+        super.initParam();
+        this.position = getArguments().getInt("position");
+        this.title = getArguments().getString("title");
+        LogUtils.dTag("huangqiubin", title);
+    }
+
+    @Override
     public void initData() {
         if ("热门".equals(title)) {
             mViewModel.httpGetHotBid();
@@ -58,19 +68,12 @@ public class BidProductFragment extends BaseMvvmFragment<MainActivityViewModel> 
     }
 
     @Override
-    public void initParam() {
-        super.initParam();
-        this.position = getArguments().getInt("position");
-        this.title = getArguments().getString("title");
-    }
-
-    @Override
     public void initListener() {
         bidProductAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull BaseQuickAdapter adapter, @NonNull View view, int position) {
                 Intent intent = new Intent(getContext(), ProductDetailActivity.class);
-                intent.putExtra(ProductDetailActivity.PRODUCTID, bidProductAdapter.getItem(position).getProduct_Id());
+                intent.putExtra(ProductDetailActivity.PRODUCTID, bidProductAdapter.getItem(position).getProductId());
                 getContext().startActivity(intent);
             }
         });
@@ -103,15 +106,15 @@ public class BidProductFragment extends BaseMvvmFragment<MainActivityViewModel> 
             @Override
             public void onChanged(HomeBidProductDTO homeBidProductDTO) {
                 bidProductAdapter.setNewData(homeBidProductDTO.getData().getHomeProductDaoList());
-
             }
         });
 
         mViewModel.getHomeBidProductLiveEvent().observe(this, new Observer<HomeBidProductDTO>() {
             @Override
             public void onChanged(HomeBidProductDTO homeBidProductDTO) {
+                LogUtils.i(homeBidProductDTO.getData().getHomeProductDaoList());
                 if (ObjectUtils.isNotEmpty(homeBidProductDTO)) {
-                    bidProductAdapter.addData(homeBidProductDTO.getData().getHomeProductDaoList());
+                    bidProductAdapter.setNewData(homeBidProductDTO.getData().getHomeProductDaoList());
                 }
 
             }
