@@ -2,7 +2,6 @@ package com.example.patshopclient.home.fragment;
 
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -35,11 +34,14 @@ public class BidProductFragment extends BaseMvvmFragment<MainActivityViewModel> 
     private int position;
     private String title;
 
-
     @Override
     public void initView(View view) {
         recyclerView = rootView.findViewById(R.id.recycler);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+        gridLayoutManager.setAutoMeasureEnabled(true);
+        gridLayoutManager.setSmoothScrollbarEnabled(true);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setNestedScrollingEnabled(false);
         bidProductAdapter = new BidProductAdapter(getContext(), null);
         bidProductAdapter.setEmptyView(new NoDataView(getContext(), null));
         recyclerView.setAdapter(bidProductAdapter);

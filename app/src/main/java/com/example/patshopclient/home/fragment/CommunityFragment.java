@@ -1,5 +1,6 @@
 package com.example.patshopclient.home.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -9,10 +10,12 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.ArrayUtils;
 import com.example.android_patshopclient.R;
 import com.example.patshopclient.common.mvvm.BaseMvvmFragment;
+import com.example.patshopclient.home.activity.PostTopicActivity;
+import com.example.patshopclient.home.activity.TestActivity;
+import com.example.patshopclient.home.activity.TopicListActivity;
 import com.example.patshopclient.home.adapter.CommunityTopicViewPagerAdapter;
 import com.example.patshopclient.home.factory.CommunityViewModelFactory;
 import com.example.patshopclient.home.viewmodel.CommunityViewModel;
@@ -34,7 +37,6 @@ public class CommunityFragment extends BaseMvvmFragment<CommunityViewModel> {
     private ViewPager vpTopic;
     private TabLayout tabLayout;
     private CommunityTopicViewPagerAdapter communityTopicViewPagerAdapter;
-
     private List<Fragment> fragmentList = new ArrayList<>();
     private List<String> tabTitleList = new ArrayList();
     private String[] titles = {"精华", "游戏", "数码", "美妆", "生活"};
@@ -81,7 +83,24 @@ public class CommunityFragment extends BaseMvvmFragment<CommunityViewModel> {
         llHotTopic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ARouter.getInstance().build("/community/activity/hot_topic").navigation();
+                Intent intent = new Intent(getActivity(), TopicListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        llSponsorTopic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PostTopicActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        llMineTopic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), TestActivity.class);
+                startActivity(intent);
             }
         });
     }

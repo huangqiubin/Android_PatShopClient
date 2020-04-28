@@ -4,11 +4,20 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.BarUtils;
+import com.blankj.utilcode.util.ObjectUtils;
 import com.example.android_patshopclient.R;
 import com.example.patshopclient.common.BaseActivity;
 import com.example.patshopclient.common.helper.BottomTabHelper;
+import com.example.patshopclient.home.fragment.ActivityFragment;
+import com.example.patshopclient.home.fragment.CommunityFragment;
+import com.example.patshopclient.home.fragment.MainHomeFragment;
+import com.example.patshopclient.home.fragment.MineFragment;
 
 @Route(path = "/home/activity/main")
 public class MainActivity extends BaseActivity {
@@ -44,7 +53,23 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initListener() {
+
     }
 
 
+    @Override
+    public void onAttachFragment(@NonNull Fragment fragment) {
+        if (ObjectUtils.isEmpty(bottomTabHelper.homeFragment) && fragment instanceof MainHomeFragment) {
+            bottomTabHelper.homeFragment = (MainHomeFragment) fragment;
+        }
+        if (ObjectUtils.isEmpty(bottomTabHelper.communityFragment) && fragment instanceof CommunityFragment) {
+            bottomTabHelper.communityFragment = (CommunityFragment) fragment;
+        }
+        if (ObjectUtils.isEmpty(bottomTabHelper.activityFragment) && fragment instanceof ActivityFragment) {
+            bottomTabHelper.activityFragment = (ActivityFragment) fragment;
+        }
+        if (ObjectUtils.isEmpty(bottomTabHelper.mineFragment) && fragment instanceof MineFragment) {
+            bottomTabHelper.mineFragment = (MineFragment) fragment;
+        }
+    }
 }

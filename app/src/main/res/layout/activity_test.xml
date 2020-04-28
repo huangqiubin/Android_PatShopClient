@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_album"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp">
+
+    <ImageView
+        android:id="@+id/iv_topic_album"
+        android:layout_width="wrap_content"
+        android:layout_height="110dp"
+        android:adjustViewBounds="true" />
+
+</androidx.cardview.widget.CardView>

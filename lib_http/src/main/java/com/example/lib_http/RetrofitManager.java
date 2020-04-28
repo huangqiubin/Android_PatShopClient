@@ -27,6 +27,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import okhttp3.logging.HttpLoggingInterceptor;
 import okio.Buffer;
 import okio.BufferedSource;
 import retrofit2.Retrofit;

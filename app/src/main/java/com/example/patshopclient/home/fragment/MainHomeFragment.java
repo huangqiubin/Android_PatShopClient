@@ -51,6 +51,11 @@ public class MainHomeFragment extends BaseMvvmFragment<MainActivityViewModel> {
     private LinearLayout llTab6;
 
     @Override
+    public int onBindLayout() {
+        return R.layout.fragment_home;
+    }
+
+    @Override
     public void initView(View view) {
         appBarLayout = rootView.findViewById(R.id.appbar);
         banner = rootView.findViewById(R.id.banner);
@@ -69,11 +74,6 @@ public class MainHomeFragment extends BaseMvvmFragment<MainActivityViewModel> {
         llTab4 = rootView.findViewById(R.id.ll_tab4);
         llTab5 = rootView.findViewById(R.id.ll_tab5);
         llTab6 = rootView.findViewById(R.id.ll_tab6);
-    }
-
-    @Override
-    public int onBindLayout() {
-        return R.layout.fragment_home;
     }
 
     @Override

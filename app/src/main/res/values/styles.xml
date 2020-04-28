@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -9,10 +9,45 @@
         <item name="android:windowBackground">@color/color_F5F5F5</item>
     </style>
 
+    <style name="TransParentTheme" parent="AppTheme">
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
+    </style>
+
     <!-- ToolBar菜单样式 -->
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <item name="actionMenuTextColor">@color/menu_color</item>
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- 从底部弹入弹出dialog -->
+    <style name="dlg_bottom_style" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit</item>
+    </style>
+
+    <!--通用dialog 背景透明主题-->
+    <style name="dialog_common_theme" parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:colorBackgroundCacheHint">@null</item><!-- 无背景缓存颜色 -->
+        <item name="android:windowFrame">@null</item><!-- 无边框 -->
+        <item name="android:windowNoTitle">true</item><!-- 无标题 -->
+        <item name="android:windowIsTranslucent">true</item><!--是否透明-->
+        <item name="android:background">@android:color/transparent</item><!--背景透明-->
+        <item name="android:windowBackground">@android:color/transparent</item><!--window背景透明-->
+    </style>
+
+    <style name="dialog_common_theme_bottom" parent="dialog_common_theme">
+        <item name="android:windowAnimationStyle">@style/BottomDialogLand</item>
+    </style>
+
+    <!-- 从底部弹入弹出dialog -->
+    <style name="BottomDialogLand" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowEnterAnimation">@anim/dialog_bottom_up</item>
+        <item name="android:windowExitAnimation">@anim/dialog_bottom_down</item>
     </style>
 
     <declare-styleable name="WPTShapeTextView">
@@ -92,5 +127,6 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center</item>
     </style>
+
 
 </resources>

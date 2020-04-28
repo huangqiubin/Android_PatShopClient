@@ -2,10 +2,6 @@ package com.example.patshopclient.home.activity;
 
 import android.graphics.Typeface;
 import android.os.Handler;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
-import android.text.style.AbsoluteSizeSpan;
-import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -17,7 +13,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blankj.utilcode.util.ConvertUtils;
 import com.blankj.utilcode.util.ObjectUtils;
 import com.blankj.utilcode.util.TimeUtils;
 import com.example.android_patshopclient.R;
@@ -182,32 +177,28 @@ public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewMod
             @Override
             public void onChanged(ProductDetailDTO productDetailDTO) {
                 if (ObjectUtils.isNotEmpty(productDetailDTO)) {
-                    ProductDetailDTO.DataBean.PmsProduct1DaoBean product1DaoBean = productDetailDTO.getData().getPmsProduct1Dao();
-                    tvProductName.setText(product1DaoBean.getName());
-                    tvOnlookers.setText("围观 " + product1DaoBean.getOnlookers() + "人");
-                    tvBidNumber.setText("出价 " + product1DaoBean.getBids() + "人");
-                    tvCurrentPrice.setText(" ¥" + product1DaoBean.getCurrentprice());
-                    tvMarketPrice.setText("市场价\n¥ " + product1DaoBean.getMarketPrice());
-                    tvRemainTime1.setDeadLine(TimeUtils.date2Millis(product1DaoBean.getBidCountdown()));
+                    ProductDetailDTO.DataBean.PmsProductModel productModel = productDetailDTO.getData().getPmsProductModel();
+                    tvProductName.setText(productModel.getName());
+                    tvOnlookers.setText("围观 " + productModel.getOnlookers() + "人");
+                    tvBidNumber.setText("出价 " + productModel.getBids() + "人");
+                    tvCurrentPrice.setText(" ¥" + productModel.getCurrentPrice());
+                    tvMarketPrice.setText("市场价\n¥ " + productModel.getMarketPrice());
+                    tvRemainTime1.setDeadLine(TimeUtils.string2Millis(productModel.getBidCountdown()));
                     if (!tvRemainTime1.isRun()) {
                         tvRemainTime1.run();
                     }
                     tvRemainTime1.setCountRunListener(new WPTTimeTextView.TimeCountRunListener() {
                         @Override
                         public void onCountRunCallback(long hour, long min, long sec) {
-                            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("距离结束仅剩\n" + (hour < 10 ? "0" + hour : hour) + " : " + (min < 10 ? "0" + min : min) + " : " + (sec < 10 ? "0" + sec : sec));
-                            int length = spannableStringBuilder.length();
-                            spannableStringBuilder.setSpan(new AbsoluteSizeSpan(ConvertUtils.dp2px(18)), 6, length, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-                            spannableStringBuilder.setSpan(new StyleSpan(Typeface.BOLD), 6, length, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-                            tvRemainTime.setText(spannableStringBuilder);
+                            tvRemainTime.setText((hour < 10 ? "0" + hour : hour) + " : " + (min < 10 ? "0" + min : min) + " : " + (sec < 10 ? "0" + sec : sec));
                         }
                     });
-                    tvStartPrice.setText("起拍价： " + product1DaoBean.getStartPrice() + " 拍币");
-                    tvHandlingFee.setText("手续费：" + product1DaoBean.getHandlingFee() + " 拍币/次");
-                    tvMarketPrice2.setText("市场价：" + product1DaoBean.getMarketPrice() + " 元");
-                    tvMarkUp.setText("加价幅度： " + product1DaoBean.getMarkup() + " 拍币");
-                    tvRefundRate.setText("退币比例： " + product1DaoBean.getRefundRate() + " %");
-                    String[] picArray = product1DaoBean.getPic().split(",");
+                    tvStartPrice.setText("起拍价： " + productModel.getStartPrice() + " 拍币");
+                    tvHandlingFee.setText("手续费：" + productModel.getHandlingFee() + " 拍币/次");
+                    tvMarketPrice2.setText("市场价：" + productModel.getMarketPrice() + " 元");
+                    tvMarkUp.setText("加价幅度： " + productModel.getMarkup() + " 拍币");
+                    tvRefundRate.setText("退币比例： " + productModel.getRefundRate() + " %");
+                    String[] picArray = productModel.getPic().split(",");
                     List<String> picList = new ArrayList<>();
                     for (int i = 0; i < picArray.length; i++) {
                         picList.add(ImageConfig.IMAGEPREFIX + picArray[i]);
@@ -221,7 +212,7 @@ public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewMod
                             Log.d("huangqb", "dsdsd");
                         }
                     }, 10000);
-                    String[] albumPics = productDetailDTO.getData().getPmsProduct1Dao().getAlbumPics().split(",");
+                    String[] albumPics = productDetailDTO.getData().getPmsProductModel().getAlbumPics().split(",");
                     List<String> detailPicList = new ArrayList<>();
                     for (int i = 0; i < albumPics.length; i++) {
                         detailPicList.add(ImageConfig.IMAGEPREFIX + albumPics[i]);
@@ -251,7 +242,7 @@ public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewMod
                 flPreviousTransactions.setVisibility(View.VISIBLE);
                 flRuleDescription.setVisibility(View.INVISIBLE);
                 break;
-            case 3:
+            case 2:
                 flProductDetail.setVisibility(View.INVISIBLE);
                 flPreviousTransactions.setVisibility(View.INVISIBLE);
                 flRuleDescription.setVisibility(View.VISIBLE);

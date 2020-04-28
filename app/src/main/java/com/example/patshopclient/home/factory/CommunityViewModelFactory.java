@@ -7,11 +7,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.patshopclient.home.model.CommunityModel;
-import com.example.patshopclient.home.model.MainActivityModel;
-import com.example.patshopclient.home.model.MineModel;
 import com.example.patshopclient.home.viewmodel.CommunityViewModel;
-import com.example.patshopclient.home.viewmodel.MainActivityViewModel;
-import com.example.patshopclient.home.viewmodel.MineViewModel;
 
 /**
  * Created by qiubin on 2020-04-15.

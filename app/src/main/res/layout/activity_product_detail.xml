@@ -210,16 +210,33 @@
                     android:layout_height="wrap_content"
                     android:visibility="gone" />
 
-                <TextView
-                    android:id="@+id/tv_remain_time"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"
                     android:background="@color/color_FFD900"
                     android:gravity="center"
-                    android:textColor="@color/color_202023"
-                    android:textSize="14sp"
-                    tools:text="距离结束仅剩\n00 : 00 : 05" />
+                    android:orientation="vertical"
+                    android:paddingTop="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="距离结束仅剩"
+                        android:textColor="@color/color_202023"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_remain_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="00:00:00"
+                        android:textColor="@color/color_202023"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -489,9 +506,9 @@
             android:layout_gravity="center_vertical"
             android:background="@color/color_EAEAEA"
             android:gravity="center"
+            android:text="0"
             android:textColor="@color/color_333333"
-            android:textSize="16sp"
-            tools:text="3" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_decrease_bid_time"
@@ -512,9 +529,9 @@
             android:layout_weight="1.5"
             android:background="@color/color_FFD900"
             android:gravity="center"
+            android:text="出价\n0/拍币"
             android:textColor="@color/color_333333"
-            android:textSize="18sp"
-            tools:text="出价\n2/拍币" />
+            android:textSize="18sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

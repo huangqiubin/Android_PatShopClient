@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.example.patshopclient.widgets.WPTShapeTextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        app:tv_radius_top_left="10dp"
+        app:tv_radius_top_right="10dp"
+        app:tv_solidColor="@color/color_FFFFFF" />
+
+</RelativeLayout>

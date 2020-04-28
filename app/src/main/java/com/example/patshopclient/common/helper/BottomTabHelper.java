@@ -39,10 +39,10 @@ public class BottomTabHelper implements View.OnClickListener {
     private TextView tvActivity;
     private TextView tvMe;
 
-    private MainHomeFragment homeFragment;
-    private CommunityFragment communityFragment;
-    private ActivityFragment activityFragment;
-    private MineFragment mineFragment;
+    public MainHomeFragment homeFragment;
+    public CommunityFragment communityFragment;
+    public ActivityFragment activityFragment;
+    public MineFragment mineFragment;
     private FragmentManager fragmentManager;
 
     private BottomTabClickListener bottomTabClickListener;

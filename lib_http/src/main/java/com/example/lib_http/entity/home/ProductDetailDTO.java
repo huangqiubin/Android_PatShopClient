@@ -1,17 +1,16 @@
 package com.example.lib_http.entity.home;
 
-import java.util.Date;
-
 /**
  * Created by qiubin on 2020-03-21.
  * Describe:
  */
 public class ProductDetailDTO {
 
+
     /**
      * code : 200
      * message : 操作成功
-     * data : {"pmsProduct1Dao":{"id":28,"gmt_Create":"2020-03-21T00:21:38.000+0000","gmt_Modified":"2020-03-21T00:21:42.000+0000","product_Category_Id":2,"name":"小米 红米5A 全网通版 3GB+32GB 香槟金 移动联通电信4G手机 双卡双待","pic":"/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg","delete_Status":0,"sale":200,"market_Price":1999,"historical_Pat_Coin":"11.2,12.0,9.23,13.4","sub_Title":"小米 红米5A 全网通版 3GB+32GB 香槟金 移动联通电信4G手机 双卡双待","stock":999,"service_Ids":"1,2,3","keywords":"小米手机","album_Pics":"/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg","category_Name":"手机数码","bids":25,"onlookers":50,"bid_Countdown":"2020-03-31T00:59:57.000+0000","start_Price":0.5,"refund_Rate":20,"handling_Fee":2,"markup":0.02}}
+     * data : {"pmsProductModel":{"id":28,"gmtCreate":"2020-03-21T00:21:38.000+0000","gmtModified":"2020-03-21T00:21:42.000+0000","productCategoryId":2,"name":"小米 红米5A 全网通版 3GB+32GB 香槟金 移动联通电信4G手机 双卡双待","pic":"/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg","deleteStatus":0,"sale":200,"marketPrice":1999,"currentPrice":11.2,"historicalPatCoin":"11.2,12.0,9.23,13.4","subTitle":"小米 红米5A 全网通版 3GB+32GB 香槟金 移动联通电信4G手机 双卡双待","stock":999,"serviceIds":"1,2,3","keywords":"小米手机","albumPics":"/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg","categoryName":"手机数码","bids":25,"onlookers":50,"bidCountdown":"2020-05-04T20:40:10.000+0000","startPrice":0.5,"refundRate":20,"handlingFee":0.5,"markup":0.2,"curPatCoin":"0.2,0.4,0.6,0.8,1.0","curPatUserNickname":"方响,天然呆酱w ,方响,科技报馆,天然呆酱w","curPatUserAvatar":"avatar2,avatar3,avatar2,avatar1,avatar3","curPatTime":"20-04-28 08:31:31,20-04-28 08:32:40,20-04-28 09:10:11,20-04-28 10:23:39,20-04-28 11:01:51,"}}
      */
 
     private int code;
@@ -44,44 +43,49 @@ public class ProductDetailDTO {
 
     public static class DataBean {
         /**
-         * pmsProduct1Dao : {"id":28,"gmt_Create":"2020-03-21T00:21:38.000+0000","gmt_Modified":"2020-03-21T00:21:42.000+0000","product_Category_Id":2,"name":"小米 红米5A 全网通版 3GB+32GB 香槟金 移动联通电信4G手机 双卡双待","pic":"/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg","delete_Status":0,"sale":200,"market_Price":1999,"historical_Pat_Coin":"11.2,12.0,9.23,13.4","sub_Title":"小米 红米5A 全网通版 3GB+32GB 香槟金 移动联通电信4G手机 双卡双待","stock":999,"service_Ids":"1,2,3","keywords":"小米手机","album_Pics":"/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg","category_Name":"手机数码","bids":25,"onlookers":50,"bid_Countdown":"2020-03-31T00:59:57.000+0000","start_Price":0.5,"refund_Rate":20,"handling_Fee":2,"markup":0.02}
+         * pmsProductModel : {"id":28,"gmtCreate":"2020-03-21T00:21:38.000+0000","gmtModified":"2020-03-21T00:21:42.000+0000","productCategoryId":2,"name":"小米 红米5A 全网通版 3GB+32GB 香槟金 移动联通电信4G手机 双卡双待","pic":"/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg","deleteStatus":0,"sale":200,"marketPrice":1999,"currentPrice":11.2,"historicalPatCoin":"11.2,12.0,9.23,13.4","subTitle":"小米 红米5A 全网通版 3GB+32GB 香槟金 移动联通电信4G手机 双卡双待","stock":999,"serviceIds":"1,2,3","keywords":"小米手机","albumPics":"/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg","categoryName":"手机数码","bids":25,"onlookers":50,"bidCountdown":"2020-05-04T20:40:10.000+0000","startPrice":0.5,"refundRate":20,"handlingFee":0.5,"markup":0.2,"curPatCoin":"0.2,0.4,0.6,0.8,1.0","curPatUserNickname":"方响,天然呆酱w ,方响,科技报馆,天然呆酱w","curPatUserAvatar":"avatar2,avatar3,avatar2,avatar1,avatar3","curPatTime":"20-04-28 08:31:31,20-04-28 08:32:40,20-04-28 09:10:11,20-04-28 10:23:39,20-04-28 11:01:51,"}
          */
 
-        private PmsProduct1DaoBean pmsProduct1Dao;
+        private PmsProductModel pmsProductModel;
 
-        public PmsProduct1DaoBean getPmsProduct1Dao() {
-            return pmsProduct1Dao;
+        public PmsProductModel getPmsProductModel() {
+            return pmsProductModel;
         }
 
-        public void setPmsProduct1Dao(PmsProduct1DaoBean pmsProduct1Dao) {
-            this.pmsProduct1Dao = pmsProduct1Dao;
+        public void setPmsProductModel(PmsProductModel pmsProductModel) {
+            this.pmsProductModel = pmsProductModel;
         }
 
-        public static class PmsProduct1DaoBean {
+        public static class PmsProductModel {
             /**
              * id : 28
-             * gmt_Create : 2020-03-21T00:21:38.000+0000
-             * gmt_Modified : 2020-03-21T00:21:42.000+0000
-             * product_Category_Id : 2
+             * gmtCreate : 2020-03-21T00:21:38.000+0000
+             * gmtModified : 2020-03-21T00:21:42.000+0000
+             * productCategoryId : 2
              * name : 小米 红米5A 全网通版 3GB+32GB 香槟金 移动联通电信4G手机 双卡双待
              * pic : /20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg
-             * delete_Status : 0
+             * deleteStatus : 0
              * sale : 200
-             * market_Price : 1999.0
-             * historical_Pat_Coin : 11.2,12.0,9.23,13.4
-             * sub_Title : 小米 红米5A 全网通版 3GB+32GB 香槟金 移动联通电信4G手机 双卡双待
+             * marketPrice : 1999.0
+             * currentPrice : 11.2
+             * historicalPatCoin : 11.2,12.0,9.23,13.4
+             * subTitle : 小米 红米5A 全网通版 3GB+32GB 香槟金 移动联通电信4G手机 双卡双待
              * stock : 999
-             * service_Ids : 1,2,3
+             * serviceIds : 1,2,3
              * keywords : 小米手机
-             * album_Pics : /20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg
-             * category_Name : 手机数码
+             * albumPics : /20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg,/20180615/5a9d248cN071f4959.jpg
+             * categoryName : 手机数码
              * bids : 25
              * onlookers : 50
-             * bid_Countdown : 2020-03-31T00:59:57.000+0000
-             * start_Price : 0.5
-             * refund_Rate : 20
-             * handling_Fee : 2.0
-             * markup : 0.02
+             * bidCountdown : 2020-05-04T20:40:10.000+0000
+             * startPrice : 0.5
+             * refundRate : 20
+             * handlingFee : 0.5
+             * markup : 0.2
+             * curPatCoin : 0.2,0.4,0.6,0.8,1.0
+             * curPatUserNickname : 方响,天然呆酱w ,方响,科技报馆,天然呆酱w
+             * curPatUserAvatar : avatar2,avatar3,avatar2,avatar1,avatar3
+             * curPatTime : 20-04-28 08:31:31,20-04-28 08:32:40,20-04-28 09:10:11,20-04-28 10:23:39,20-04-28 11:01:51,
              */
 
             private int id;
@@ -93,7 +97,7 @@ public class ProductDetailDTO {
             private int deleteStatus;
             private int sale;
             private double marketPrice;
-            private double currentprice;
+            private double currentPrice;
             private String historicalPatCoin;
             private String subTitle;
             private int stock;
@@ -103,11 +107,15 @@ public class ProductDetailDTO {
             private String categoryName;
             private int bids;
             private int onlookers;
-            private Date bidCountdown;
+            private String bidCountdown;
             private double startPrice;
             private int refundRate;
             private double handlingFee;
             private double markup;
+            private String curPatCoin;
+            private String curPatUserNickname;
+            private String curPatUserAvatar;
+            private String curPatTime;
 
             public int getId() {
                 return id;
@@ -181,12 +189,12 @@ public class ProductDetailDTO {
                 this.marketPrice = marketPrice;
             }
 
-            public double getCurrentprice() {
-                return currentprice;
+            public double getCurrentPrice() {
+                return currentPrice;
             }
 
-            public void setCurrentprice(double currentprice) {
-                this.currentprice = currentprice;
+            public void setCurrentPrice(double currentPrice) {
+                this.currentPrice = currentPrice;
             }
 
             public String getHistoricalPatCoin() {
@@ -261,11 +269,11 @@ public class ProductDetailDTO {
                 this.onlookers = onlookers;
             }
 
-            public Date getBidCountdown() {
+            public String getBidCountdown() {
                 return bidCountdown;
             }
 
-            public void setBidCountdown(Date bidCountdown) {
+            public void setBidCountdown(String bidCountdown) {
                 this.bidCountdown = bidCountdown;
             }
 
@@ -299,6 +307,38 @@ public class ProductDetailDTO {
 
             public void setMarkup(double markup) {
                 this.markup = markup;
+            }
+
+            public String getCurPatCoin() {
+                return curPatCoin;
+            }
+
+            public void setCurPatCoin(String curPatCoin) {
+                this.curPatCoin = curPatCoin;
+            }
+
+            public String getCurPatUserNickname() {
+                return curPatUserNickname;
+            }
+
+            public void setCurPatUserNickname(String curPatUserNickname) {
+                this.curPatUserNickname = curPatUserNickname;
+            }
+
+            public String getCurPatUserAvatar() {
+                return curPatUserAvatar;
+            }
+
+            public void setCurPatUserAvatar(String curPatUserAvatar) {
+                this.curPatUserAvatar = curPatUserAvatar;
+            }
+
+            public String getCurPatTime() {
+                return curPatTime;
+            }
+
+            public void setCurPatTime(String curPatTime) {
+                this.curPatTime = curPatTime;
             }
         }
     }

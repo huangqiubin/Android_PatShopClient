@@ -5,7 +5,6 @@ import android.app.Application;
 import com.example.lib_http.RetrofitManager;
 import com.example.lib_http.entity.home.HomeBidProductDTO;
 import com.example.lib_http.entity.home.HomeContentDTO;
-import com.example.lib_http.entity.home.HomeHotBidDTO;
 import com.example.lib_http.http.RxAdapter;
 import com.example.lib_http.service.HomeContentService;
 import com.example.patshopclient.common.mvvm.model.BaseModel;
