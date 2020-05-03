@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_FFD900"
+    tools:context="com.example.patshopclient.login.activity.LoginActivity">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_margin="8dp"
+        android:src="@drawable/icon_close"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_bid"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="140dp"
+        app:cardCornerRadius="40dp"
+        app:cardPreventCornerOverlap="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="拍"
+            android:textColor="@color/color_333333"
+            android:textSize="36sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:text="手机号"
+        android:textColor="@color/color_333333"
+        android:textSize="18sp"
+        android:textStyle=""
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_bid" />
+
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:background="@null"
+        android:hint="请输入手机号"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_phone"
+        app:layout_constraintLeft_toRightOf="@+id/tv_phone"
+        app:layout_constraintRight_toLeftOf="@+id/iv_clear"
+        app:layout_constraintTop_toTopOf="@+id/tv_phone" />
+
+    <ImageView
+        android:id="@+id/iv_clear"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginRight="34dp"
+        android:src="@drawable/icon_close"
+        app:layout_constraintBottom_toBottomOf="@+id/et_phone"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_phone" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/color_797979"
+        app:layout_constraintTop_toBottomOf="@+id/tv_phone" />
+
+    <TextView
+        android:id="@+id/tv_verified"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:text="密&#8195;码"
+        android:textColor="@color/color_333333"
+        android:textSize="18sp"
+        android:textStyle=""
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view1" />
+
+    <EditText
+        android:id="@+id/et_verified"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:background="@null"
+        android:hint="请输入密码"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_verified"
+        app:layout_constraintLeft_toRightOf="@+id/tv_verified"
+        app:layout_constraintRight_toLeftOf="@+id/iv_password_clear"
+        app:layout_constraintTop_toTopOf="@+id/tv_verified" />
+
+    <ImageView
+        android:id="@+id/iv_password_clear"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginRight="34dp"
+        android:src="@drawable/icon_close"
+        app:layout_constraintBottom_toBottomOf="@+id/et_verified"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_verified" />
+
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/color_797979"
+        app:layout_constraintTop_toBottomOf="@+id/tv_verified" />
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/color_797979"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <com.example.patshopclient.widgets.WPTShapeTextView
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="登陆"
+        android:textStyle="bold"
+        android:textColor="@color/color_333333"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_msg"
+        app:tv_radius="8dp"
+        app:tv_solidColor="@color/color_FFFFFF" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_FEFCE8">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_oval="true" />
+
+    <TextView
+        android:id="@+id/tv_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:textColor="@color/color_333333"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
+        app:layout_constraintTop_toTopOf="@+id/iv_avatar"
+        tools:text="科技报馆" />
+
+    <TextView
+        android:id="@+id/tv_bid_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:textColor="@color/color_333333"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_nickname"
+        app:layout_constraintLeft_toRightOf="@+id/tv_nickname"
+        app:layout_constraintTop_toTopOf="@+id/tv_nickname"
+        tools:text="20-04-29 07:28:08" />
+
+    <TextView
+        android:id="@+id/tv_rmb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:textColor="@color/color_333333"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nickname"
+        tools:text="若无人出价，将以0.00拍拍币获得本品" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="75dp"
+        android:layout_height="0dp"
+        android:background="@color/color_FFD900"
+        android:gravity="center"
+        android:text="领先"
+        android:textColor="@color/color_333333"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="60dp"
+        android:background="@color/color_EEEEEE"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
