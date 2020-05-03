@@ -1,6 +1,7 @@
 package com.example.lib_http.service;
 
 import com.example.lib_http.config.API;
+import com.example.lib_http.entity.home.BidProductResultDTO;
 import com.example.lib_http.entity.home.ProductDetailDTO;
 
 import io.reactivex.Observable;
@@ -20,4 +21,11 @@ public interface ProductDetailService {
      */
     @GET(API.URL_HOST_PATSHOP + "/home/product_detail")
     Observable<ProductDetailDTO> getProductDetail(@Query("productId") int productId);
+
+    /**
+     * 商品出价竞拍
+     * @return
+     */
+    @GET(API.URL_HOST_PATSHOP + "/home/bid_product_l")
+    Observable<BidProductResultDTO> getBidProduct(@Query("productId")int productId,@Query("bidPatCoin") double bidPatCoin,@Query("userName") String userName);
 }

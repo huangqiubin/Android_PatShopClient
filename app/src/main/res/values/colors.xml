@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFD900</color>
-    <color name="colorPrimaryDark">#FFD900</color>
+    <color name="colorPrimary">#FFD000</color>
+    <color name="colorPrimaryDark">#FFD000</color>
     <color name="colorAccent">#D81B60</color>
     <color name="menu_color">#1976D2</color>
 
@@ -15,9 +15,9 @@
     <color name="color_333333">#333333</color>
     <color name="color_CF333333">#CF333333</color>
     <color name="color_AB3B3A">#AB3B3A</color>
-    <color name="coloc_CFFFD901">#CFFFD901</color>
-    <color name="color_C9FFD900">#C9FFD900</color>
-    <color name="color_FFD900">#FFD900</color>
+    <color name="coloc_CFFFD901">#CFFFD001</color>
+    <color name="color_C9FFD900">#C9FFD000</color>
+    <color name="color_FFD900">#FFD000</color>
     <color name="color_AAAAAA">#AAAAAA</color>
     <color name="color_202023">#202023</color>
     <color name="color_797979">#797979</color>
@@ -38,4 +38,6 @@
     <color name="color_666666">#666666</color>
     <color name="color_D32F2F">#D32F2F</color>
     <color name="color_999999">#999999</color>
+    <color name="color_FEFCE8">#FEFCE8</color>
+    <color name="color_F0F0F0">#F0F0F0</color>
 </resources>

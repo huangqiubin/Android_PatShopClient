@@ -61,11 +61,12 @@
                         android:id="@+id/recycler_gift"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:layout_below="@+id/tv_sign"
                         android:layout_marginTop="25dp"
                         android:layout_marginBottom="6dp"
-                        tools:itemCount="7"/>
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="7" />
 
                 </RelativeLayout>
 
@@ -78,6 +79,8 @@
             android:id="@+id/recycler_task"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 

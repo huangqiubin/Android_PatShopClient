@@ -15,8 +15,11 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.ConvertUtils;
+import com.blankj.utilcode.util.ObjectUtils;
 import com.blankj.utilcode.util.ScreenUtils;
 import com.example.android_patshopclient.R;
+import com.example.patshopclient.common.config.UserInfoBean;
+import com.example.patshopclient.login.activity.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -127,6 +130,13 @@ public class SplashActivity extends AppCompatActivity {
 
             }
         });
+        //sessionId或者userName为空时，要登陆
+        String sessionId = UserInfoBean.getInstance().getSessionId();
+        if (ObjectUtils.isEmpty(sessionId)) {
+            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
+
     }
 
 

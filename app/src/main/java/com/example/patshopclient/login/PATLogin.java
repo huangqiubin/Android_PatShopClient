@@ -9,6 +9,7 @@ import com.blankj.utilcode.util.SPUtils;
 import com.example.lib_http.RetrofitManager;
 import com.example.patshopclient.common.config.BaseData;
 import com.example.patshopclient.common.config.ServerConfig;
+import com.example.patshopclient.common.config.UserInfoBean;
 import com.example.patshopclient.login.activity.LoginActivity;
 
 /**
@@ -43,6 +44,8 @@ public class PATLogin {
         Intent intent = new Intent(activity, LoginActivity.class);
         activity.startActivity(intent);
     }
+
+
 
 
     interface LoginCallBack{

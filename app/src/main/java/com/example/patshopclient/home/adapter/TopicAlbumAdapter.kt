@@ -8,23 +8,23 @@ import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.example.android_patshopclient.R
-import com.example.patshopclient.home.model.TopicAlbumModel
+import com.example.patshopclient.home.POJO.TopicAlbumPOJO
 
 /**
  * Created by qiubin on 2020-04-22.
  * Describe:发布话题 图片adapter
  */
-class TopicAlbumAdapter(albumList: MutableList<TopicAlbumModel>) : BaseMultiItemQuickAdapter<TopicAlbumModel, BaseViewHolder>() {
+class TopicAlbumAdapter(albumList: MutableList<TopicAlbumPOJO>) : BaseMultiItemQuickAdapter<TopicAlbumPOJO, BaseViewHolder>() {
 
-    private val widthItem: Int = (ScreenUtils.getScreenWidth() - ConvertUtils.dp2px(33f)) / 4
+    private val widthItem: Int = (ScreenUtils.getScreenWidth() - ConvertUtils.dp2px(80f)) / 4
 
     init {
         // 绑定 layout 对应的 type
-        addItemType(0, R.layout.item_album)
-        addItemType(1, R.layout.item_album_spec)
+        addItemType(0, R.layout.item_album)//本地图片
+        addItemType(1, R.layout.item_album_spec)//占位图片
     }
 
-    override fun convert(helper: BaseViewHolder, item: TopicAlbumModel) {
+    override fun convert(helper: BaseViewHolder, item: TopicAlbumPOJO) {
         var cardAlbum = helper.getView<CardView>(R.id.card_album)
         var ivLP = cardAlbum.layoutParams
         ivLP.width = widthItem
@@ -34,9 +34,6 @@ class TopicAlbumAdapter(albumList: MutableList<TopicAlbumModel>) : BaseMultiItem
             0 -> {
                 var ivAlbum = helper.getView<ImageView>(R.id.iv_topic_album)
                 Glide.with(context).load(item.imgPath).into(ivAlbum)
-            }
-            1 -> {
-                addChildClickViewIds(R.id.ll_album)
             }
         }
 

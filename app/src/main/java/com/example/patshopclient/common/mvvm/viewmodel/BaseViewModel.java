@@ -79,6 +79,7 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
         }
         return liveData;
     }
+
     public static final class ParameterField {
         public static String CLASS = "CLASS";
         public static String CANONICAL_NAME = "CANONICAL_NAME";

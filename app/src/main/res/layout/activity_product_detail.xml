@@ -495,7 +495,7 @@
             android:layout_marginRight="8dp"
             android:layout_weight="1.5"
             android:gravity="center_vertical|end"
-            android:text="自动出价：+"
+            android:text="自动出价： +  "
             android:textColor="@color/color_FFD900"
             android:textSize="16sp" />
 
@@ -517,7 +517,7 @@
             android:layout_marginLeft="8dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="-"
+            android:text="  -"
             android:textColor="@color/color_FFD900"
             android:textSize="16sp" />
 

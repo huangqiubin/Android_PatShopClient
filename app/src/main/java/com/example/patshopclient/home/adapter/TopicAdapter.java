@@ -44,7 +44,6 @@ public class TopicAdapter extends BaseQuickAdapter<CommunityTopicDTO.DataBean.To
         ImageView ivAvatar = baseViewHolder.getView(R.id.iv_avatar);
         imageRecycler.setAdapter(imageAdapter);
         Glide.with(getContext()).load(ImageConfig.MY_IMAGE_PREFIX + topicListBean.getUserAvatar()).placeholder(R.mipmap.avatar_placeholder).into(ivAvatar);
-        LogUtils.d("huangqiubin", "topicTime:" + TimeUtils.string2Date((topicListBean.getCreateTime()), "yyyy/MM/dd HH:mm"));
         baseViewHolder.setText(R.id.tv_sec_topic_type, topicListBean.getSmsSecTopic().getSecTopicName())
                 .setText(R.id.tv_nickname, topicListBean.getUserNickName())
                 .setText(R.id.tv_date, topicListBean.getCreateTime())

@@ -3,6 +3,8 @@ package com.example.patshopclient.home.viewmodel;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.MediatorLiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.lib_http.pojo.TopicPOJO;
 import com.example.lib_http.entity.home.CommunityTopicDTO;
@@ -12,8 +14,12 @@ import com.example.patshopclient.common.event.SingleLiveEvent;
 import com.example.patshopclient.common.mvvm.viewmodel.BaseViewModel;
 import com.example.patshopclient.home.model.CommunityModel;
 
+import java.util.List;
+import java.util.Map;
+
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
+import okhttp3.MultipartBody;
 
 /**
  * Created by qiubin on 2020-03-17.
@@ -28,6 +34,8 @@ public class CommunityViewModel extends BaseViewModel<CommunityModel> {
     private SingleLiveEvent<TopicListDTO> topicListLiveEvent;
     //发布话题事件
     private SingleLiveEvent<ResponceBodyDTO> responceLiveEvent;
+    //选择图片的文件地址
+    public MutableLiveData<List<String>> imagePath = new MediatorLiveData<>();
 
     public CommunityViewModel(@NonNull Application application, CommunityModel model) {
         super(application, model);
@@ -91,8 +99,8 @@ public class CommunityViewModel extends BaseViewModel<CommunityModel> {
     /**
      * 发布话题
      */
-    public void httpPostTopic(TopicPOJO topicPOJO) {
-        mModel.postTopic(topicPOJO).subscribe(new Observer<ResponceBodyDTO>() {
+    public void httpPostTopic(TopicPOJO topicPOJO, List<MultipartBody.Part> files) {
+        mModel.postTopic(topicPOJO, files).subscribe(new Observer<ResponceBodyDTO>() {
             @Override
             public void onSubscribe(Disposable d) {
 
@@ -105,7 +113,7 @@ public class CommunityViewModel extends BaseViewModel<CommunityModel> {
 
             @Override
             public void onError(Throwable e) {
-                mUIChangeLiveData.getShowTransLoadingViewEvent().postValue(false);
+
             }
 
             @Override

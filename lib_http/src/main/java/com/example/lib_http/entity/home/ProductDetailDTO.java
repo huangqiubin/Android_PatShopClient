@@ -116,6 +116,7 @@ public class ProductDetailDTO {
             private String curPatUserNickname;
             private String curPatUserAvatar;
             private String curPatTime;
+            private String curPatUserId;
 
             public int getId() {
                 return id;
@@ -339,6 +340,14 @@ public class ProductDetailDTO {
 
             public void setCurPatTime(String curPatTime) {
                 this.curPatTime = curPatTime;
+            }
+
+            public String getCurPatUserId() {
+                return curPatUserId;
+            }
+
+            public void setCurPatUserId(String curPatUserId) {
+                this.curPatUserId = curPatUserId;
             }
         }
     }

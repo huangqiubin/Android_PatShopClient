@@ -167,7 +167,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="10dp"
-                        android:text="我发起的"
+                        android:text="我要发起"
                         android:textColor="@color/color_333333"
                         android:textSize="12sp" />
                 </LinearLayout>

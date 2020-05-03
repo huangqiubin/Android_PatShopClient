@@ -132,13 +132,13 @@
         android:layout_marginTop="15dp"
         android:layout_marginRight="15dp"
         android:background="@null"
-        android:inputType="textMultiLine"
-        android:scrollbars="vertical"
         android:gravity="top"
         android:hint="分享此刻好心情"
+        android:inputType="textMultiLine"
         android:lineSpacingMultiplier="1.3"
-        android:minLines="8"
         android:maxLines="10"
+        android:minLines="8"
+        android:scrollbars="vertical"
         android:textColor="@color/color_333333"
         android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@+id/divide1" />
@@ -147,8 +147,8 @@
         android:id="@+id/divide2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="6dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="6dp"
         android:layout_marginRight="15dp"
         android:background="@color/color_EEEEEE"
         app:layout_constraintTop_toBottomOf="@+id/et_content" />
@@ -157,8 +157,8 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="10dp"
         android:paddingVertical="9dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -184,5 +184,13 @@
         android:text="发布话题"
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_test"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/btn_complete"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

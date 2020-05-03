@@ -4,6 +4,7 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 
+import com.example.lib_http.entity.home.BidProductResultDTO;
 import com.example.lib_http.entity.home.ProductDetailDTO;
 import com.example.patshopclient.common.event.SingleLiveEvent;
 import com.example.patshopclient.common.mvvm.viewmodel.BaseViewModel;
@@ -20,6 +21,9 @@ public class ProductDetailViewModel extends BaseViewModel<ProductDetailModel> {
 
     public static String TAG = ProductDetailViewModel.class.getSimpleName();
     private SingleLiveEvent<ProductDetailDTO> productDetailLiveEvent;
+    public SingleLiveEvent<Double> bidPrice = new SingleLiveEvent<>();
+    private SingleLiveEvent<BidProductResultDTO> bidProductLiveEvent;
+
 
     public ProductDetailViewModel(@NonNull Application application, ProductDetailModel model) {
         super(application, model);
@@ -49,8 +53,37 @@ public class ProductDetailViewModel extends BaseViewModel<ProductDetailModel> {
         });
     }
 
+    public void httpBidProduct(int productId, double bidPatCoin, String userName) {
+        mModel.bidProductResult(productId, bidPatCoin, userName).subscribe(new Observer<BidProductResultDTO>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(BidProductResultDTO bidProductResultDTO) {
+                getBidProductLiveEvent().postValue(bidProductResultDTO);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
+
+
     public SingleLiveEvent<ProductDetailDTO> getProductDetailLiveEvent() {
         return productDetailLiveEvent = createLiveData(productDetailLiveEvent);
+    }
+
+    public SingleLiveEvent<BidProductResultDTO> getBidProductLiveEvent() {
+        return bidProductLiveEvent = createLiveData(bidProductLiveEvent);
     }
 
 }

@@ -73,10 +73,12 @@ public class RetrofitManager {
                 return response;
             }
         };
-//        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-//        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+
         okHttpBuilder = new OkHttpClient.Builder();
-        okHttpBuilder.interceptors().add(interceptor);
+//        okHttpBuilder.interceptors().add(interceptor);
+        okHttpBuilder.interceptors().add(logging);
 
         SSLContext sslContext = SSLContextUtil.getDefaultSLLContext();
         if (sslContext != null) {
@@ -119,7 +121,7 @@ public class RetrofitManager {
     /**
      * 创建首页社区热门话题Service
      */
-    public CommunityService getCommunityService(){
+    public CommunityService getCommunityService() {
         return mRetrofit.create(CommunityService.class);
     }
 

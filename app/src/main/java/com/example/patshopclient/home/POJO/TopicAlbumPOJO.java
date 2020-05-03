@@ -1,4 +1,5 @@
-package com.example.patshopclient.home.model;
+package com.example.patshopclient.home.POJO;
+
 
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 
@@ -6,8 +7,8 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
  * Created by qiubin on 2020-04-22.
  * Describe:发布帖子 图片model
  */
-public class TopicAlbumModel implements MultiItemEntity {
-    private int type;//0占位图片 1本地图片
+public class TopicAlbumPOJO implements MultiItemEntity {
+    private int type;//0本地图片 1占位图片
     private String imgPath;//本地图片地址
 
     public int getType() {
@@ -28,7 +29,7 @@ public class TopicAlbumModel implements MultiItemEntity {
 
     @Override
     public String toString() {
-        return "TopicAlbumModel{" +
+        return "TopicAlbumPOJO{" +
                 "type=" + type +
                 ", imgPath='" + imgPath + '\'' +
                 '}';

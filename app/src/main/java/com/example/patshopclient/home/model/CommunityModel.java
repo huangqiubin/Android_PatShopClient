@@ -1,6 +1,7 @@
 package com.example.patshopclient.home.model;
 
 import android.app.Application;
+
 import com.example.lib_http.RetrofitManager;
 import com.example.lib_http.pojo.TopicPOJO;
 import com.example.lib_http.entity.home.CommunityTopicDTO;
@@ -10,7 +11,10 @@ import com.example.lib_http.http.RxAdapter;
 import com.example.lib_http.service.CommunityService;
 import com.example.patshopclient.common.mvvm.model.BaseModel;
 
+import java.util.List;
+
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
 
 /**
  * Created by qiubin on 2020-03-17.
@@ -33,8 +37,8 @@ public class CommunityModel extends BaseModel {
         return communityService.getTopicList().compose(RxAdapter.schedulersTransformer()).compose(RxAdapter.exceptionTransformer());
     }
 
-    public Observable<ResponceBodyDTO> postTopic(TopicPOJO topicPOJO) {
-        return communityService.postTopic(topicPOJO).compose(RxAdapter.schedulersTransformer()).compose(RxAdapter.exceptionTransformer());
+    public Observable<ResponceBodyDTO> postTopic(TopicPOJO topicPOJO, List<MultipartBody.Part> files) {
+        return communityService.postTopic(topicPOJO.getTopicType(), topicPOJO.getTopicSecType(), topicPOJO.getTopicContent(), files).compose(RxAdapter.schedulersTransformer()).compose(RxAdapter.exceptionTransformer());
     }
 
 }

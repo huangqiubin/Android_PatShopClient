@@ -57,7 +57,6 @@ public class BidProductFragment extends BaseMvvmFragment<MainActivityViewModel> 
         super.initParam();
         this.position = getArguments().getInt("position");
         this.title = getArguments().getString("title");
-        LogUtils.dTag("huangqiubin", title);
     }
 
     @Override

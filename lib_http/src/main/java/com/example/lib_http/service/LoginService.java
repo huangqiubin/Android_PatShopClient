@@ -1,6 +1,7 @@
 package com.example.lib_http.service;
 
 import io.reactivex.Observable;
+import retrofit2.Call;
 import retrofit2.http.POST;
 
 /**
@@ -8,6 +9,7 @@ import retrofit2.http.POST;
  * Describe:
  */
 public interface LoginService {
+
 
 
 }
