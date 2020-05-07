@@ -1,5 +1,6 @@
 package com.example.patshopclient.home.fragment;
 
+import android.content.DialogInterface;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ import com.example.patshopclient.home.adapter.SignInAdapter;
 import com.example.patshopclient.home.factory.ActivityViewModelFactory;
 import com.example.patshopclient.home.viewmodel.ActivityViewModel;
 import com.example.patshopclient.widgets.WPTShapeTextView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,9 +34,13 @@ public class ActivityFragment extends BaseMvvmFragment<ActivityViewModel> {
     private WPTShapeTextView tvSign;
     private TextView tvSignMsg;
     private RecyclerView rvSign;
-    private RecyclerView rvTask;
     private List<SignInPOJO> signInList = new ArrayList<>();
     private SignInAdapter signInAdapter = new SignInAdapter(null);
+    private TextView tvComplete1;
+    private TextView tvComplete2;
+    private TextView tvComplete3;
+    private TextView tvComplete4;
+    private TextView tvComplete5;
 
 
     @Override
@@ -48,7 +54,16 @@ public class ActivityFragment extends BaseMvvmFragment<ActivityViewModel> {
         tvSignMsg = rootView.findViewById(R.id.tv_sign_msg);
         rvSign = rootView.findViewById(R.id.recycler_sign);
         rvSign.setAdapter(signInAdapter);
-        rvTask = rootView.findViewById(R.id.recycler_task);
+        tvComplete1 = rootView.findViewById(R.id.tv_complete1);
+        tvComplete2 = rootView.findViewById(R.id.tv_complete2);
+        tvComplete3 = rootView.findViewById(R.id.tv_complete3);
+        tvComplete4 = rootView.findViewById(R.id.tv_complete4);
+        tvComplete5 = rootView.findViewById(R.id.tv_complete5);
+        tvComplete1.setOnClickListener(v -> noticeUserNotComplete());
+        tvComplete2.setOnClickListener(v -> noticeUserNotComplete());
+        tvComplete3.setOnClickListener(v -> noticeUserNotComplete());
+        tvComplete4.setOnClickListener(v -> noticeUserNotComplete());
+        tvComplete5.setOnClickListener(v -> noticeUserNotComplete());
     }
 
     @Override
@@ -72,8 +87,10 @@ public class ActivityFragment extends BaseMvvmFragment<ActivityViewModel> {
             @Override
             public void onClick(View v) {
                 mViewModel.getSignIn();
+
             }
         });
+
     }
 
     @Override
@@ -100,15 +117,21 @@ public class ActivityFragment extends BaseMvvmFragment<ActivityViewModel> {
                     return;
                 }
                 boolean isYesterday = activityContentDTO.getData().isYesterday();
-                //如果不是昨天的话返回
-                if (!isYesterday) {
-                    return;
+                boolean hasTodaySign = activityContentDTO.getData().isHasTodaySign();
+                //如果是昨天或者今天，就显示签到标记
+                if (isYesterday || hasTodaySign) {
+                    int rewardCoin = activityContentDTO.getData().getSignInModel().getRewardCoin();
+                    for (int i = 0; i <= rewardCoin - 3; i++) {
+                        signInAdapter.getData().get(i).setSign(true);
+                    }
+                    signInAdapter.notifyDataSetChanged();
                 }
-                int rewardCoin = activityContentDTO.getData().getSignInModel().getRewardCoin();
-                for (int i = 0; i <= rewardCoin - 3; i++) {
-                    signInAdapter.getData().get(i).setSign(true);
+                if (hasTodaySign) {
+                    setTvSignState(true);
+                } else {
+                    setTvSignState(false);
                 }
-                signInAdapter.notifyDataSetChanged();
+
             }
 
         });
@@ -121,14 +144,36 @@ public class ActivityFragment extends BaseMvvmFragment<ActivityViewModel> {
                     return;
                 }
                 if (signInDTO.getData() == 1) {
-                    tvSign.setSolidColor(R.color.color_999A9C);
+                    setTvSignState(true);
+                } else {
+                    setTvSignState(false);
                 }
             }
         });
 
     }
 
-    private void setTvSignState(boolean isSignIn){
+    //设置签到按钮状态
+    private void setTvSignState(boolean isSignIn) {
+        if (isSignIn) {
+            tvSign.setSolidColor(R.color.color_999A9C);
+            tvSign.setClickable(false);
+            tvSign.setText("已签到");
+        } else {
+            tvSign.setSolidColor(R.color.color_F73255);
+            tvSign.setClickable(true);
+            tvSign.setText("签到");
+        }
 
+    }
+
+    private void noticeUserNotComplete() {
+        new MaterialAlertDialogBuilder(getContext()).setTitle("程序员小哥哥正在加紧开发此功能哦！")
+                .setPositiveButton("好的", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                }).create().show();
     }
 }

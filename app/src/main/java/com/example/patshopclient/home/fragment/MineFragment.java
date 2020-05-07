@@ -78,6 +78,22 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
             }
         });
 
+        //围观
+        llLikeSale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build(PathConfig.ONLOOK).navigation();
+            }
+        });
+
+        //足迹
+        llTraceSale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build(PathConfig.TRACEFOOT).navigation();
+            }
+        });
+
         //待发货
         llGoingSend.setOnClickListener(new View.OnClickListener() {
             @Override

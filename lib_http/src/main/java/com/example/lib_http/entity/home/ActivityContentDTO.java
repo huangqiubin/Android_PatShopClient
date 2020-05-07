@@ -47,6 +47,7 @@ public class ActivityContentDTO {
 
         private SignInModelBean signInModel;
         private boolean yesterday;
+        private boolean hasTodaySign;
 
         public SignInModelBean getSignInModel() {
             return signInModel;
@@ -62,6 +63,14 @@ public class ActivityContentDTO {
 
         public void setYesterday(boolean yesterday) {
             this.yesterday = yesterday;
+        }
+
+        public boolean isHasTodaySign() {
+            return hasTodaySign;
+        }
+
+        public void setHasTodaySign(boolean hasTodaySign) {
+            this.hasTodaySign = hasTodaySign;
         }
 
         public static class SignInModelBean {

@@ -18,7 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.patshopclient.home.activity.BidSaleActivity"></activity>
+        <activity android:name="com.example.patshopclient.home.activity.TraceActivity"></activity>
+        <activity android:name="com.example.patshopclient.home.activity.OnLookActivity" />
+        <activity android:name="com.example.patshopclient.home.activity.BidSaleActivity" />
         <activity android:name="com.example.patshopclient.home.activity.HistoricalOrderActivity" />
         <activity android:name="com.example.patshopclient.home.activity.ReceivedActivity" />
         <activity android:name="com.example.patshopclient.home.activity.DeliveryActivity" />
