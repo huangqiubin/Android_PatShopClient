@@ -1,15 +1,12 @@
 package com.example.patshopclient.login;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 
 import com.blankj.utilcode.util.ObjectUtils;
 import com.blankj.utilcode.util.SPUtils;
-import com.example.lib_http.RetrofitManager;
-import com.example.patshopclient.common.config.BaseData;
-import com.example.patshopclient.common.config.ServerConfig;
-import com.example.patshopclient.common.config.UserInfoBean;
+import com.example.lib_userinfo.config.BaseData;
+import com.example.lib_userinfo.config.ServerConfig;
 import com.example.patshopclient.login.activity.LoginActivity;
 
 /**

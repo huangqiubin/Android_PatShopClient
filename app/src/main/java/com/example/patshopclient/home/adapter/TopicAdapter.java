@@ -6,15 +6,13 @@ import android.widget.ImageView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ScreenUtils;
-import com.blankj.utilcode.util.TimeUtils;
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.example.android_patshopclient.R;
 import com.example.lib_http.entity.home.CommunityTopicDTO;
-import com.example.patshopclient.common.util.image.ImageConfig;
+import com.example.patshopclient.common.config.ImageConfig;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

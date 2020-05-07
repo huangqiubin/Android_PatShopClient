@@ -1,4 +1,4 @@
-package com.example.patshopclient.common.config;
+package com.example.lib_userinfo.config;
 
 import com.blankj.utilcode.util.ObjectUtils;
 import com.blankj.utilcode.util.SPUtils;
@@ -32,7 +32,7 @@ public class UserInfoBean {
 
     //todo 去除默认值
     public String getUname() {
-        return SPUtils.getInstance(SPConstant.USER_LOGIN_FILE).getString(SPConstant.USER_NAME, "18378583473");
+        return SPUtils.getInstance(SPConstant.USER_LOGIN_FILE).getString(SPConstant.USER_NAME, "");
     }
 
     public String getUavator() {
@@ -97,7 +97,6 @@ public class UserInfoBean {
         } else {
             SPUtils.getInstance(SPConstant.USER_LOGIN_FILE).remove(SPConstant.USER_SESSIONID);
         }
-        ;
     }
 
     public void clearUserInfo() {

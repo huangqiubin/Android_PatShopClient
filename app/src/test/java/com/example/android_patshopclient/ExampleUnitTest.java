@@ -1,6 +1,12 @@
 package com.example.android_patshopclient;
 
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -14,4 +20,6 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+
+
 }

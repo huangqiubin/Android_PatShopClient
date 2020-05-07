@@ -14,14 +14,16 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.ObjectUtils;
 import com.blankj.utilcode.util.SpanUtils;
 import com.example.android_patshopclient.R;
 import com.example.lib_http.entity.home.BidProductResultDTO;
 import com.example.lib_http.entity.home.ProductDetailDTO;
-import com.example.patshopclient.common.config.UserInfoBean;
+import com.example.lib_userinfo.config.UserInfoBean;
+import com.example.patshopclient.common.config.PathConfig;
 import com.example.patshopclient.common.mvvm.BaseMvvmActivity;
-import com.example.patshopclient.common.util.image.ImageConfig;
+import com.example.patshopclient.common.config.ImageConfig;
 import com.example.patshopclient.home.POJO.BidMemberPOJO;
 import com.example.patshopclient.home.adapter.BidMemberAdapter;
 import com.example.patshopclient.home.adapter.ProductDetailImageAdapter;
@@ -39,6 +41,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+@Route(path = PathConfig.PRODUCTDETAIL)
 public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewModel> {
 
     public static final String PRODUCTID = "productId";

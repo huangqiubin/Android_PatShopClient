@@ -6,11 +6,16 @@ import android.util.Log;
 
 
 import com.example.lib_http.config.API;
+import com.example.lib_http.http.LoginHandlerInterceptor;
+import com.example.lib_http.service.ActivityService;
 import com.example.lib_http.service.CommunityService;
 import com.example.lib_http.service.HomeContentService;
+import com.example.lib_http.service.LoginService;
+import com.example.lib_http.service.MineContentService;
 import com.example.lib_http.service.ProductDetailService;
 import com.example.lib_http.util.LogUtils;
 import com.example.lib_http.util.SSLContextUtil;
+import com.example.lib_userinfo.config.UserInfoBean;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -77,14 +82,17 @@ public class RetrofitManager {
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         okHttpBuilder = new OkHttpClient.Builder();
-//        okHttpBuilder.interceptors().add(interceptor);
-        okHttpBuilder.interceptors().add(logging);
+        okHttpBuilder.interceptors().add(new LoginHandlerInterceptor());
+        okHttpBuilder.interceptors().add(interceptor);
+
+//        okHttpBuilder.interceptors().add(logging);
 
         SSLContext sslContext = SSLContextUtil.getDefaultSLLContext();
         if (sslContext != null) {
             SSLSocketFactory socketFactory = sslContext.getSocketFactory();
             okHttpBuilder.sslSocketFactory(socketFactory);
         }
+        addCookie();
         okHttpBuilder.hostnameVerifier(SSLContextUtil.HOSTNAME_VERIFIER);
         mRetrofit = new Retrofit.Builder().client(okHttpBuilder.build()).baseUrl(API.URL_HOST_PATSHOP).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).addConverterFactory(GsonConverterFactory.create()).build();
     }
@@ -103,6 +111,36 @@ public class RetrofitManager {
         }
         return retrofitManager;
     }
+
+    public void addCookie() {
+        if (okHttpBuilder != null)
+            okHttpBuilder.addInterceptor(new Interceptor() {
+                @Override
+                public Response intercept(Chain chain) throws IOException {
+                    String sessionId = UserInfoBean.getInstance().getSessionId();
+                    Request original = chain.request();
+                    Request.Builder requestBuilder = original.newBuilder()
+                            .header("Cookie", "JSESSIONID=" + sessionId);
+                    Request request = requestBuilder.build();
+                    return chain.proceed(request);
+                }
+            });
+    }
+
+    public void addToken(final String token) {
+        if (okHttpBuilder != null)
+            okHttpBuilder.addInterceptor(new Interceptor() {
+                @Override
+                public Response intercept(Chain chain) throws IOException {
+                    Request original = chain.request();
+                    Request.Builder requestBuilder = original.newBuilder()
+                            .header("Authorization", "Bearer " + token);
+                    Request request = requestBuilder.build();
+                    return chain.proceed(request);
+                }
+            });
+    }
+
 
     /**
      * 创建HomeContentService
@@ -125,17 +163,24 @@ public class RetrofitManager {
         return mRetrofit.create(CommunityService.class);
     }
 
-    public void addToken(final String token) {
-        if (okHttpBuilder != null)
-            okHttpBuilder.addInterceptor(new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-                    Request original = chain.request();
-                    Request.Builder requestBuilder = original.newBuilder()
-                            .header("Authorization", "Bearer " + token);
-                    Request request = requestBuilder.build();
-                    return chain.proceed(request);
-                }
-            });
+    /**
+     * 创建登陆Service
+     */
+    public LoginService getLoginService() {
+        return mRetrofit.create(LoginService.class);
+    }
+
+    /**
+     * 创建我的页面Service
+     */
+    public MineContentService getMineContentService() {
+        return mRetrofit.create(MineContentService.class);
+    }
+
+    /**
+     * 创建活动页面Service
+     */
+    public ActivityService getActivityService(){
+        return mRetrofit.create(ActivityService.class);
     }
 }

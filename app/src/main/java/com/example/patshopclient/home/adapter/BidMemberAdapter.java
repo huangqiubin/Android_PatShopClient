@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.example.android_patshopclient.R;
-import com.example.patshopclient.common.util.image.ImageConfig;
+import com.example.patshopclient.common.config.ImageConfig;
 import com.example.patshopclient.home.POJO.BidMemberPOJO;
 
 import org.jetbrains.annotations.NotNull;

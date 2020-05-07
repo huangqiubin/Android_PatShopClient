@@ -1,16 +1,11 @@
 package com.example.patshopclient.home.adapter;
 
-import android.view.View;
 import android.widget.ImageView;
-
-import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.example.android_patshopclient.R;
-import com.example.patshopclient.common.util.image.ImageConfig;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

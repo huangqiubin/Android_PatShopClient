@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,11 +14,8 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.ConvertUtils;
-import com.blankj.utilcode.util.ObjectUtils;
 import com.blankj.utilcode.util.ScreenUtils;
 import com.example.android_patshopclient.R;
-import com.example.patshopclient.common.config.UserInfoBean;
-import com.example.patshopclient.login.activity.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -31,6 +27,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
         ivMao = findViewById(R.id.iv_mao);
         tvBid = findViewById(R.id.tv_bid);
         tvHelloWorld = findViewById(R.id.tv_hello_world);
@@ -130,12 +127,6 @@ public class SplashActivity extends AppCompatActivity {
 
             }
         });
-        //sessionId或者userName为空时，要登陆
-        String sessionId = UserInfoBean.getInstance().getSessionId();
-        if (ObjectUtils.isEmpty(sessionId)) {
-            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-            startActivity(intent);
-        }
 
     }
 

@@ -29,6 +29,9 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.List;
 
+/**
+ * 首页分类商品activity
+ */
 public class ProductCategoryActivity extends BaseMvvmActivity<MainActivityViewModel> {
 
     public static final String CATEGORYNAME = "categoryName";
@@ -89,7 +92,7 @@ public class ProductCategoryActivity extends BaseMvvmActivity<MainActivityViewMo
                 HomeBidProductDTO.DataBean.HomeProductDaoListBean homeProductDaoListBean = (HomeBidProductDTO.DataBean.HomeProductDaoListBean) adapter.getData().get(position);
                 int productId = homeProductDaoListBean.getProductId();
                 Intent intent = new Intent(ProductCategoryActivity.this, ProductDetailActivity.class);
-                intent.putExtra(ProductDetailActivity.PRODUCTID, 28);
+                intent.putExtra(ProductDetailActivity.PRODUCTID, productId);
                 startActivity(intent);
             }
         });

@@ -5,14 +5,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.blankj.utilcode.util.CacheDiskUtils;
-import com.blankj.utilcode.util.SPUtils;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.blankj.utilcode.util.ObjectUtils;
+import com.bumptech.glide.Glide;
 import com.example.android_patshopclient.R;
-import com.example.patshopclient.common.config.BaseData;
-import com.example.patshopclient.common.config.ServerConfig;
+import com.example.lib_http.entity.home.MineContentDTO;
+import com.example.lib_userinfo.config.UserInfoBean;
+import com.example.patshopclient.common.config.PathConfig;
 import com.example.patshopclient.common.mvvm.BaseMvvmFragment;
+import com.example.patshopclient.common.config.ImageConfig;
 import com.example.patshopclient.home.factory.MainViewModelFactory;
 import com.example.patshopclient.home.viewmodel.MineViewModel;
 
@@ -31,6 +35,9 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
     private TextView tvBidSale;
     private TextView tvLikeSale;
     private TextView tvTraceSale;
+    private LinearLayout llGoingSend;
+    private LinearLayout llGoingReceive;
+    private LinearLayout llHistoryOrder;
 
     @Override
     public int onBindLayout() {
@@ -48,11 +55,52 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
         tvBidSale = rootView.findViewById(R.id.tv_bid_sale);
         tvLikeSale = rootView.findViewById(R.id.tv_like_sale);
         tvTraceSale = rootView.findViewById(R.id.tv_trace_sale);
+        llGoingSend = rootView.findViewById(R.id.ll_going_send);
+        llGoingReceive = rootView.findViewById(R.id.ll_going_receive);
+        llHistoryOrder = rootView.findViewById(R.id.ll_history_order);
     }
 
     @Override
     public void initData() {
+        String userName = UserInfoBean.getInstance().getUname();
+        mViewModel.getMineContent(userName);
+    }
 
+    @Override
+    public void initListener() {
+        super.initListener();
+
+        //参拍
+        llBidSale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build(PathConfig.BIDSALE).navigation();
+            }
+        });
+
+        //待发货
+        llGoingSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build(PathConfig.DELIVERY).navigation();
+            }
+        });
+
+        //待收货
+        llGoingReceive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build(PathConfig.RECEIVE).navigation();
+            }
+        });
+
+        //历史订单
+        llHistoryOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build(PathConfig.HISTORICAL_ORDER).navigation();
+            }
+        });
     }
 
     @Override
@@ -72,7 +120,22 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
 
     @Override
     public void initViewObservable() {
-
+        mViewModel.getMineContentLiveEvent().observe(this, new Observer<MineContentDTO>() {
+            @Override
+            public void onChanged(MineContentDTO mineContentDTO) {
+                if (ObjectUtils.isEmpty(mineContentDTO)) {
+                    return;
+                }
+                MineContentDTO.DataBean.MemberDaoBean memberDaoBean = mineContentDTO.getData().getMemberDao();
+                MineContentDTO.DataBean.BidNumPOJOBean bidNumPOJOBean = mineContentDTO.getData().getBidNumPOJO();
+                Glide.with(getContext()).load(ImageConfig.MY_IMAGE_PREFIX + memberDaoBean.getIcon()).placeholder(R.mipmap.avatar_placeholder).centerCrop().into(ivHead);
+                tvNickName.setText(memberDaoBean.getNickname());
+                tvSignature.setText(memberDaoBean.getPersonalizedSignature());
+                tvBidSale.setText(bidNumPOJOBean.getBidNum() + "");
+                tvLikeSale.setText(bidNumPOJOBean.getOnLooks() + "");
+                tvTraceSale.setText(bidNumPOJOBean.getFootPrint() + "");
+            }
+        });
     }
 
 }

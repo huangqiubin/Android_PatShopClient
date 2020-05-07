@@ -1,10 +1,11 @@
 package com.example.patshopclient;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.util.ArrayList;
-import java.util.List;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by qiubin on 2020-04-01.
@@ -12,7 +13,7 @@ import java.util.List;
  */
 public class Test {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JSONException {
 //        List<String> list = new ArrayList<>();
 //        list.add("一个");
 //        list.add("两个");
@@ -30,10 +31,21 @@ public class Test {
 //        DecimalFormat decimalFormat = new DecimalFormat("0");
 //        Double d = Double.parseDouble("12.4");
 //        System.out.println(decimalFormat.format(d));
-        int num1 = 4;
-        int num2 = 8;
-        System.out.println(num1 / num2);
-        System.out.println((double) num1 / num2);
-        System.out.println((double) num1 / (double) num2);
+//        int num1 = 4;
+//        int num2 = 8;
+//        System.out.println(num1 / num2);
+//        System.out.println((double) num1 / num2);
+//        System.out.println((double) num1 / (double) num2);
+//        JSONObject jsonObject = new JSONObject();
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("key1", "123");
+        map.put("key2", 1);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("key1", "123");
+        jsonObject.put("key2", 1);
+        System.out.println(jsonObject);
+        System.out.println(jsonObject.get("key1"));
+        System.out.println(jsonObject.get("key2"));
     }
 }

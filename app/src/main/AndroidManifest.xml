@@ -18,12 +18,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.patshopclient.home.activity.TestActivity"></activity>
+        <activity android:name="com.example.patshopclient.home.activity.BidSaleActivity"></activity>
+        <activity android:name="com.example.patshopclient.home.activity.HistoricalOrderActivity" />
+        <activity android:name="com.example.patshopclient.home.activity.ReceivedActivity" />
+        <activity android:name="com.example.patshopclient.home.activity.DeliveryActivity" />
+        <activity android:name="com.example.patshopclient.home.activity.TestActivity" />
         <activity android:name="com.example.patshopclient.home.activity.PostTopicActivity" />
         <activity
             android:name="com.example.patshopclient.home.activity.TopicListActivity"
             android:theme="@style/TransParentTheme" />
-        <activity android:name="com.example.patshopclient.login.activity.LoginActivity" />
+        <activity
+            android:name="com.example.patshopclient.login.activity.LoginActivity"
+            android:launchMode="singleInstance" />
         <activity android:name="com.example.patshopclient.home.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

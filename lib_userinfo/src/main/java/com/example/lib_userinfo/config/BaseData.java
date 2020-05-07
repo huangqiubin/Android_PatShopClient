@@ -1,4 +1,4 @@
-package com.example.patshopclient.common.config;
+package com.example.lib_userinfo.config;
 
 /**
  * Created by qiubin on 2020-04-03.
