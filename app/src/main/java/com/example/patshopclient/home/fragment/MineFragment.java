@@ -1,10 +1,12 @@
 package com.example.patshopclient.home.fragment;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -27,7 +29,9 @@ import com.example.patshopclient.home.viewmodel.MineViewModel;
 public class MineFragment extends BaseMvvmFragment<MineViewModel> {
 
     private ImageView ivHead;
+    private ImageView ivSex;
     private TextView tvNickName;
+    private TextView tvUserName;
     private TextView tvSignature;
     private LinearLayout llBidSale;
     private LinearLayout llLikeSale;
@@ -38,6 +42,7 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
     private LinearLayout llGoingSend;
     private LinearLayout llGoingReceive;
     private LinearLayout llHistoryOrder;
+    private CardView cardSaleManager;
 
     @Override
     public int onBindLayout() {
@@ -47,7 +52,9 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
     @Override
     public void initView(View view) {
         ivHead = rootView.findViewById(R.id.iv_head);
+        ivSex = rootView.findViewById(R.id.iv_sex);
         tvNickName = rootView.findViewById(R.id.tv_nickname);
+        tvUserName = rootView.findViewById(R.id.tv_username);
         tvSignature = rootView.findViewById(R.id.tv_signature);
         llBidSale = rootView.findViewById(R.id.ll_bid_sale);
         llLikeSale = rootView.findViewById(R.id.ll_like_sale);
@@ -58,6 +65,7 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
         llGoingSend = rootView.findViewById(R.id.ll_going_send);
         llGoingReceive = rootView.findViewById(R.id.ll_going_receive);
         llHistoryOrder = rootView.findViewById(R.id.ll_history_order);
+        cardSaleManager = rootView.findViewById(R.id.card_sale_manage);
     }
 
     @Override
@@ -117,6 +125,14 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
                 ARouter.getInstance().build(PathConfig.HISTORICAL_ORDER).navigation();
             }
         });
+
+        //商品管理
+        cardSaleManager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
@@ -145,11 +161,24 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
                 MineContentDTO.DataBean.MemberDaoBean memberDaoBean = mineContentDTO.getData().getMemberDao();
                 MineContentDTO.DataBean.BidNumPOJOBean bidNumPOJOBean = mineContentDTO.getData().getBidNumPOJO();
                 Glide.with(getContext()).load(ImageConfig.MY_IMAGE_PREFIX + memberDaoBean.getIcon()).placeholder(R.mipmap.avatar_placeholder).centerCrop().into(ivHead);
+
+
+                tvUserName.setText("账号：" + memberDaoBean.getUsername());
                 tvNickName.setText(memberDaoBean.getNickname());
-                tvSignature.setText(memberDaoBean.getPersonalizedSignature());
+                tvSignature.setText("个性签名：" + memberDaoBean.getPersonalizedSignature());
                 tvBidSale.setText(bidNumPOJOBean.getBidNum() + "");
                 tvLikeSale.setText(bidNumPOJOBean.getOnLooks() + "");
                 tvTraceSale.setText(bidNumPOJOBean.getFootPrint() + "");
+                if (ObjectUtils.isNotEmpty(memberDaoBean.getGender())) {
+                    Glide.with(getContext()).load(memberDaoBean.getGender() == 1 ? R.mipmap.woman : R.mipmap.man).placeholder(R.mipmap.icon_placeholer).centerCrop().into(ivSex);
+                    ivSex.setVisibility(View.VISIBLE);
+                }
+                //是管理员
+                if (memberDaoBean.getManager() == 1){
+                    cardSaleManager.setVisibility(View.VISIBLE);
+                }else {
+                    cardSaleManager.setVisibility(View.GONE);
+                }
             }
         });
     }

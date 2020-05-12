@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.patshopclient.common.config.ImageConfig;
 import com.youth.banner.adapter.BannerAdapter;
 
 import java.util.List;
@@ -19,7 +20,6 @@ import java.util.List;
  * Describe:
  */
 public class ProductDetailBannerAdapter extends BannerAdapter<String, ProductDetailBannerAdapter.ImageHolder> {
-
 
 
     public ProductDetailBannerAdapter(List<String> datas) {
@@ -45,7 +45,7 @@ public class ProductDetailBannerAdapter extends BannerAdapter<String, ProductDet
 
     @Override
     public void onBindView(ImageHolder holder, String data, int position, int size) {
-        Glide.with(holder.imageView).load(data).apply(RequestOptions.bitmapTransform(new RoundedCorners(20))).into(holder.imageView);
+        Glide.with(holder.imageView).load(ImageConfig.MY_IMAGE_PREFIX + data).apply(RequestOptions.bitmapTransform(new RoundedCorners(20))).into(holder.imageView);
     }
 
     public class ImageHolder extends RecyclerView.ViewHolder {

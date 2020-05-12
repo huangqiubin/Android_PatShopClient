@@ -3,8 +3,9 @@ package com.example.patshopclient.home.model;
 import android.app.Application;
 
 import com.example.lib_http.RetrofitManager;
-import com.example.lib_http.entity.home.BidSaleListDTO;
+import com.example.lib_http.entity.home.BidSaleDTO;
 import com.example.lib_http.entity.home.MineContentDTO;
+import com.example.lib_http.entity.home.OnLookListDTO;
 import com.example.lib_http.http.RxAdapter;
 import com.example.lib_http.service.MineContentService;
 import com.example.patshopclient.common.mvvm.model.BaseModel;
@@ -28,7 +29,11 @@ public class MineModel extends BaseModel {
         return mineContentService.getMineContent(userName).compose(RxAdapter.schedulersTransformer()).compose(RxAdapter.exceptionTransformer());
     }
 
-    public Observable<BidSaleListDTO> getBidSaleList(String userName) {
+    public Observable<BidSaleDTO> getBidSaleList(String userName) {
         return mineContentService.getBidSaleList(userName).compose(RxAdapter.schedulersTransformer()).compose(RxAdapter.exceptionTransformer());
+    }
+
+    public Observable<OnLookListDTO> getOnLookList(String userName) {
+        return mineContentService.getOnLookList(userName).compose(RxAdapter.schedulersTransformer()).compose(RxAdapter.exceptionTransformer());
     }
 }

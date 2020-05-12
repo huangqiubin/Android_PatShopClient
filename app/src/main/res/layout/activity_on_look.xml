@@ -10,9 +10,9 @@
         android:id="@+id/toolbar"
         layout="@layout/common_toolbar" />
 
-    <com.example.patshopclient.common.baseview.NoDataView
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar" />
-
 </RelativeLayout>

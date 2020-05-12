@@ -6,11 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
     android:layout_marginTop="10dp"
+    android:layout_marginRight="5dp"
     android:orientation="vertical"
     app:cardCornerRadius="8dp"
     app:cardElevation="0dp">
+
+    <com.example.patshopclient.widgets.WPTShapeTextView
+        android:id="@+id/tv_bid_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_FFFFFF"
+        android:textSize="10sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="end"
+        app:tv_radius="6dp"
+        android:paddingVertical="3dp"
+        android:paddingHorizontal="5dp"
+        app:tv_solidColor="@color/color_FFD900"
+        tools:text="竞拍成功" />
 
     <LinearLayout
         android:id="@+id/ll_product"
@@ -23,7 +38,6 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:adjustViewBounds="true"
-            android:background="@color/color_FFFFFF"
             android:src="@color/color_EEEEEE"
             app:riv_corner_radius_top_left="6dp"
             app:riv_corner_radius_top_right="6dp" />
@@ -72,14 +86,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/tv_bid_result"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/color_AB3B3A"
-                android:textSize="12sp"
-                tools:text="竞拍成功" />
 
         </LinearLayout>
 

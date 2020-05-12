@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.android_patshopclient.R
-import com.example.lib_http.entity.home.BidSaleListDTO
+import com.example.lib_http.entity.home.BidSaleDTO
 import com.example.lib_userinfo.config.UserInfoBean
 import com.example.patshopclient.common.baseview.NoDataView
 import com.example.patshopclient.common.config.PathConfig
@@ -16,14 +16,13 @@ import com.example.patshopclient.common.mvvm.BaseMvvmActivity
 import com.example.patshopclient.home.adapter.BidSaleAdapter
 import com.example.patshopclient.home.factory.MainViewModelFactory
 import com.example.patshopclient.home.viewmodel.MineViewModel
-import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_bid_sale.*
 import kotlinx.android.synthetic.main.common_toolbar.*
 
 @Route(path = PathConfig.BIDSALE)
 class BidSaleActivity : BaseMvvmActivity<MineViewModel>() {
 
-    var bidSaleAdapter = BidSaleAdapter(null)
+    private var bidSaleAdapter = BidSaleAdapter(null)
 
     override fun onBindLayout(): Int {
         return R.layout.activity_bid_sale
@@ -50,7 +49,7 @@ class BidSaleActivity : BaseMvvmActivity<MineViewModel>() {
         }
 
         bidSaleAdapter.setOnItemClickListener { adapter, view, position ->
-            var bidResultModelListBean = adapter.data[position] as BidSaleListDTO.DataBean.BidResultModelListBean
+            var bidResultModelListBean = adapter.data[position] as BidSaleDTO.DataBean.BidResultListBean
             var productId = bidResultModelListBean.productId
             ARouter.getInstance().build(PathConfig.PRODUCTDETAIL).withInt(ProductDetailActivity.PRODUCTID, productId).navigation()
             Log.d("huangqiubin","bidSaleActivity click")
@@ -68,10 +67,10 @@ class BidSaleActivity : BaseMvvmActivity<MineViewModel>() {
 
     override fun initViewObservable() {
         mViewModel.bidSaleListLiveEvent.observe(this, Observer {
-            if (it.data.bidResultModelList.isNullOrEmpty()) {
+            if (it.data.bidResultList.isNullOrEmpty()) {
                 return@Observer
             }
-            bidSaleAdapter.setNewData(it.data.bidResultModelList)
+            bidSaleAdapter.setNewData(it.data.bidResultList)
         })
     }
 }

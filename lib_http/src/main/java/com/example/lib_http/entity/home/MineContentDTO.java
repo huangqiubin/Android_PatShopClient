@@ -103,8 +103,9 @@ public class MineContentDTO {
             private String personalizedSignature;
             private int patCoin;
             private String growth;
-            private int loginStatus;
+            private Boolean loginStatus;
             private String salt;
+            private int manager;
 
             public int getId() {
                 return id;
@@ -226,11 +227,11 @@ public class MineContentDTO {
                 this.patCoin = patCoin;
             }
 
-            public int getLoginStatus() {
+            public Boolean getLoginStatus() {
                 return loginStatus;
             }
 
-            public void setLoginStatus(int loginStatus) {
+            public void setLoginStatus(Boolean loginStatus) {
                 this.loginStatus = loginStatus;
             }
 
@@ -248,6 +249,14 @@ public class MineContentDTO {
 
             public void setSalt(String salt) {
                 this.salt = salt;
+            }
+
+            public int getManager() {
+                return manager;
+            }
+
+            public void setManager(int manager) {
+                this.manager = manager;
             }
         }
 

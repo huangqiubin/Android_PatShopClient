@@ -5,16 +5,16 @@ import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.example.android_patshopclient.R
-import com.example.lib_http.entity.home.BidSaleDTO
+import com.example.lib_http.entity.home.OnLookListDTO
 import com.example.patshopclient.common.config.ImageConfig
 
 /**
  * Created by qiubin on 2020-05-04.
  * Describe:参拍adapter
  */
-class BidSaleAdapter(data: MutableList<BidSaleDTO.DataBean.BidResultListBean>?) : BaseQuickAdapter<BidSaleDTO.DataBean.BidResultListBean, BaseViewHolder>(R.layout.item_bid_sale, data) {
+class OnLookAdapter(data: MutableList<OnLookListDTO.DataBean.OnLookListBean>?) : BaseQuickAdapter<OnLookListDTO.DataBean.OnLookListBean, BaseViewHolder>(R.layout.item_bid_sale, data) {
 
-    override fun convert(helper: BaseViewHolder, item: BidSaleDTO.DataBean.BidResultListBean) {
+    override fun convert(helper: BaseViewHolder, item: OnLookListDTO.DataBean.OnLookListBean) {
 
         var ivProduct = helper.getView<ImageView>(R.id.iv_product)
         Glide.with(context).load(ImageConfig.MY_IMAGE_PREFIX + item.pic).placeholder(R.mipmap.icon_placeholer).into(ivProduct)
