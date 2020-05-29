@@ -38,10 +38,7 @@ public class BidProductFragment extends BaseMvvmFragment<MainActivityViewModel> 
     public void initView(View view) {
         recyclerView = rootView.findViewById(R.id.recycler);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
-        gridLayoutManager.setAutoMeasureEnabled(true);
-        gridLayoutManager.setSmoothScrollbarEnabled(true);
         recyclerView.setLayoutManager(gridLayoutManager);
-        recyclerView.setNestedScrollingEnabled(false);
         bidProductAdapter = new BidProductAdapter(getContext(), null);
         bidProductAdapter.setEmptyView(new NoDataView(getContext(), null));
         recyclerView.setAdapter(bidProductAdapter);
@@ -61,10 +58,12 @@ public class BidProductFragment extends BaseMvvmFragment<MainActivityViewModel> 
 
     @Override
     public void initData() {
-        if ("热门".equals(title)) {
-            mViewModel.httpGetHotBid();
-        } else {
-            mViewModel.httpGetBidProduct(title);
+        if (ObjectUtils.isNotEmpty(title)){
+            if ("热门".equals(title)) {
+                mViewModel.httpGetHotBid();
+            } else {
+                mViewModel.httpGetBidProduct(title);
+            }
         }
     }
 

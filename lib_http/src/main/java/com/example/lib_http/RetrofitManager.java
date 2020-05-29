@@ -11,6 +11,7 @@ import com.example.lib_http.service.ActivityService;
 import com.example.lib_http.service.CommunityService;
 import com.example.lib_http.service.HomeContentService;
 import com.example.lib_http.service.LoginService;
+import com.example.lib_http.service.ManageSaleContentService;
 import com.example.lib_http.service.MineContentService;
 import com.example.lib_http.service.ProductDetailService;
 import com.example.lib_http.util.LogUtils;
@@ -180,7 +181,14 @@ public class RetrofitManager {
     /**
      * 创建活动页面Service
      */
-    public ActivityService getActivityService(){
+    public ActivityService getActivityService() {
         return mRetrofit.create(ActivityService.class);
+    }
+
+    /**
+     * 创建商家管理页面Service
+     */
+    public ManageSaleContentService getManageSaleService() {
+        return mRetrofit.create(ManageSaleContentService.class);
     }
 }

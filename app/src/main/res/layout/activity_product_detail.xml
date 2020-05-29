@@ -403,78 +403,92 @@
                 android:background="@color/color_FFFFFF"
                 app:layout_constraintTop_toBottomOf="@+id/rl_product_service" />
 
-            <LinearLayout
-                android:id="@+id/ll_tab"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/recycler_bid">
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/ll_tab"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="45dp"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/recycler_bid">-->
 
-                <TextView
-                    android:id="@+id/tv_product_detail"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="商品详情"
-                    android:textColor="@color/select_ffd900_333333"
-                    android:textSize="14sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tv_product_detail"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:layout_weight="1"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:text="商品详情"-->
+            <!--                    android:textColor="@color/select_ffd900_333333"-->
+            <!--                    android:textSize="14sp" />-->
 
-                <TextView
-                    android:id="@+id/tv_previous_transactions"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="往期成交"
-                    android:textColor="@color/select_ffd900_333333"
-                    android:textSize="14sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tv_previous_transactions"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:layout_weight="1"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:text="往期成交"-->
+            <!--                    android:textColor="@color/select_ffd900_333333"-->
+            <!--                    android:textSize="14sp" />-->
 
-                <TextView
-                    android:id="@+id/tv_rule_description"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="规则说明"
-                    android:textColor="@color/select_ffd900_333333"
-                    android:textSize="14sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tv_rule_description"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:layout_weight="1"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:text="规则说明"-->
+            <!--                    android:textColor="@color/select_ffd900_333333"-->
+            <!--                    android:textSize="14sp" />-->
 
-            </LinearLayout>
+            <!--            </LinearLayout>-->
 
-            <FrameLayout
+
+            <RelativeLayout
                 android:id="@+id/fl_product_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/ll_tab">
+                app:layout_constraintTop_toBottomOf="@+id/recycler_bid">
+
+                <TextView
+                    android:id="@+id/tv_detail_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="商品详情"
+                    android:textColor="@color/color_333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_product_detail"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_detail_head" />
 
-            </FrameLayout>
+            </RelativeLayout>
 
-            <FrameLayout
-                android:id="@+id/fl_previous_transactions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/ll_tab">
+            <!--            <FrameLayout-->
+            <!--                android:id="@+id/fl_previous_transactions"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/ll_tab">-->
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_previous_transactions"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+            <!--                <androidx.recyclerview.widget.RecyclerView-->
+            <!--                    android:id="@+id/recycler_previous_transactions"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content" />-->
 
-            </FrameLayout>
+            <!--            </FrameLayout>-->
 
-            <FrameLayout
-                android:id="@+id/fl_rule_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/ll_tab">
+            <!--            <FrameLayout-->
+            <!--                android:id="@+id/fl_rule_description"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/ll_tab">-->
 
-            </FrameLayout>
+            <!--            </FrameLayout>-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

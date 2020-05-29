@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.lifecycle.Observer;
@@ -22,6 +23,9 @@ import com.example.patshopclient.home.factory.MainViewModelFactory;
 import com.example.patshopclient.home.viewmodel.MainActivityViewModel;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
 import com.youth.banner.indicator.CircleIndicator;
 
@@ -49,6 +53,8 @@ public class MainHomeFragment extends BaseMvvmFragment<MainActivityViewModel> {
     private LinearLayout llTab4;
     private LinearLayout llTab5;
     private LinearLayout llTab6;
+    private SmartRefreshLayout refreshLayout;
+    private boolean isRefresh = false;
 
     @Override
     public int onBindLayout() {
@@ -74,6 +80,7 @@ public class MainHomeFragment extends BaseMvvmFragment<MainActivityViewModel> {
         llTab4 = rootView.findViewById(R.id.ll_tab4);
         llTab5 = rootView.findViewById(R.id.ll_tab5);
         llTab6 = rootView.findViewById(R.id.ll_tab6);
+        refreshLayout = rootView.findViewById(R.id.refresh_layout);
     }
 
     @Override
@@ -83,19 +90,6 @@ public class MainHomeFragment extends BaseMvvmFragment<MainActivityViewModel> {
 
     @Override
     public void initListener() {
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                int appBarHeight = appBarLayout.getHeight();
-                if (verticalOffset <= -appBarHeight) {
-                    tabLayout.setBackgroundColor(getResources().getColor(R.color.color_FFD900));
-                    tabLayout.setTabTextColors(getResources().getColor(R.color.color_333333), getResources().getColor(R.color.color_FFFFFF));
-                } else {
-                    tabLayout.setBackgroundColor(getResources().getColor(R.color.color_F5F5F5));
-                    tabLayout.setTabTextColors(getResources().getColor(R.color.color_333333), getResources().getColor(R.color.color_FFD900));
-                }
-            }
-        });
         llTab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,6 +138,13 @@ public class MainHomeFragment extends BaseMvvmFragment<MainActivityViewModel> {
                 startActivity(intent);
             }
         });
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                isRefresh = true;
+                mViewModel.httpGetContent();
+            }
+        });
     }
 
     @Override
@@ -166,10 +167,17 @@ public class MainHomeFragment extends BaseMvvmFragment<MainActivityViewModel> {
         mViewModel.getHomeContentLiveEvent().observe(this, new Observer<HomeContentDTO>() {
             @Override
             public void onChanged(HomeContentDTO homeContentDTO) {
+                if (isRefresh){
+                    refreshLayout.finishRefresh();
+                    isRefresh = false;
+                }
                 if (ObjectUtils.isNotEmpty(homeContentDTO.getData().getHomeAdvertiseList())) {
                     mainHomeBannerAdapter.updataDatas(homeContentDTO.getData().getHomeAdvertiseList());
                 }
+
                 if (ObjectUtils.isNotEmpty(homeContentDTO.getData().getProductCategoryDaoList())) {
+                    fragmentList.clear();
+                    titleList.clear();
                     BidProductFragment hotBidProductFragment = new BidProductFragment();
                     Bundle b = new Bundle();
                     b.putInt("position", 0);

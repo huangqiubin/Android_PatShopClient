@@ -36,7 +36,8 @@ public class BidProductAdapter extends BaseQuickAdapter<HomeBidProductDTO.DataBe
         ViewGroup.LayoutParams layoutParams = ivProduct.getLayoutParams();
         layoutParams.width = (ScreenUtils.getScreenWidth() - 30) / 2;
         ivProduct.setLayoutParams(layoutParams);
-        Glide.with(mContext).load(ImageConfig.MY_IMAGE_PREFIX + homeProductDaoListBean.getPic()).into(ivProduct);
+        String imagePath = homeProductDaoListBean.getPic().split(",")[0];
+        Glide.with(mContext).load(ImageConfig.MY_IMAGE_PREFIX + imagePath).into(ivProduct);
         baseViewHolder.setText(R.id.tv_introduction, homeProductDaoListBean.getProductName())
                 .setText(R.id.tv_pat_coin, "拍拍币：" + homeProductDaoListBean.getPatPrice())
                 .setText(R.id.tv_pat_count, "已出价 " + homeProductDaoListBean.getBidCount() + "次")

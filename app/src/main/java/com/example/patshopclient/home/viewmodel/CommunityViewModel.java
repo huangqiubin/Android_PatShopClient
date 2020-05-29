@@ -35,7 +35,7 @@ public class CommunityViewModel extends BaseViewModel<CommunityModel> {
     //发布话题事件
     private SingleLiveEvent<ResponceBodyDTO> responceLiveEvent;
     //选择图片的文件地址
-    public MutableLiveData<List<String>> imagePath = new MediatorLiveData<>();
+    public MutableLiveData<List<String>> imagePath = new MutableLiveData<>();
 
     public CommunityViewModel(@NonNull Application application, CommunityModel model) {
         super(application, model);

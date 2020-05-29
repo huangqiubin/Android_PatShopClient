@@ -31,289 +31,297 @@
 
     </RelativeLayout>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:elevation="0dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/color_FFFFFF"
-                android:orientation="horizontal"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                app:layout_scrollFlags="scroll">
-
-                <LinearLayout
-                    android:id="@+id/ll_tab1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/circle_cf333333">
-
-                        <ImageView
-                            android:id="@+id/iv_tab1"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerInParent="true"
-                            android:adjustViewBounds="true"
-                            android:src="@drawable/icon_card" />
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/iv_tab1"
-                        android:layout_marginTop="6dp"
-                        android:gravity="center"
-                        android:text="生活充值"
-                        android:textColor="@color/color_202023"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_tab2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/circle_ffd900">
-
-                        <ImageView
-                            android:id="@+id/iv_tab2"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerInParent="true"
-                            android:adjustViewBounds="true"
-                            android:src="@drawable/icon_game" />
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/iv_tab1"
-                        android:layout_marginTop="6dp"
-                        android:gravity="center"
-                        android:text="游戏点卷"
-                        android:textColor="@color/color_202023"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_tab3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/circle_cf333333">
-
-                        <ImageView
-                            android:id="@+id/iv_tab3"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerInParent="true"
-                            android:adjustViewBounds="true"
-                            android:src="@drawable/icon_phone" />
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/iv_tab1"
-                        android:layout_marginTop="6dp"
-                        android:gravity="center"
-                        android:text="手机数码"
-                        android:textColor="@color/color_202023"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/color_FFFFFF"
-                android:orientation="horizontal"
-                android:paddingTop="8dp"
-                android:paddingBottom="10dp"
-                app:layout_scrollFlags="scroll">
-
-                <LinearLayout
-                    android:id="@+id/ll_tab4"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/circle_ffd900">
-
-                        <ImageView
-                            android:id="@+id/iv_tab4"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerInParent="true"
-                            android:adjustViewBounds="true"
-                            android:src="@drawable/icon_home_people" />
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/iv_tab1"
-                        android:layout_marginTop="6dp"
-                        android:gravity="center"
-                        android:text="手办模型"
-                        android:textColor="@color/color_202023"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_tab5"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/circle_cf333333">
-
-                        <ImageView
-                            android:id="@+id/iv_tab5"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerInParent="true"
-                            android:adjustViewBounds="true"
-                            android:src="@drawable/icon_lipstick" />
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/iv_tab1"
-                        android:layout_marginTop="6dp"
-                        android:gravity="center"
-                        android:text="美妆好物"
-                        android:textColor="@color/color_202023"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_tab6"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/circle_ffd900">
-
-                        <ImageView
-                            android:id="@+id/iv_tab6"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerInParent="true"
-                            android:adjustViewBounds="true"
-                            android:src="@drawable/icon_store" />
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/iv_tab1"
-                        android:layout_marginTop="6dp"
-                        android:gravity="center"
-                        android:text="生活百货"
-                        android:textColor="@color/color_202023"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <com.youth.banner.Banner
-                android:id="@+id/banner"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@color/color_FFFFFF"
-                app:layout_scrollFlags="scroll" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/scrollview"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/viewpager"
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                app:elevation="0dp">
 
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tab_layout"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="top"
-                    android:background="@color/color_FFD900"
-                    app:tabIndicatorHeight="0dp"
-                    app:tabMode="scrollable"
-                    app:tabSelectedTextColor="@color/color_FFFFFF"
-                    app:tabTextColor="@color/color_333333" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_FFFFFF"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    app:layout_scrollFlags="scroll">
 
-            </androidx.viewpager.widget.ViewPager>
+                    <LinearLayout
+                        android:id="@+id/ll_tab1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-        </androidx.core.widget.NestedScrollView>
+                        <RelativeLayout
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/circle_cf333333">
+
+                            <ImageView
+                                android:id="@+id/iv_tab1"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/icon_card" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/iv_tab1"
+                            android:layout_marginTop="6dp"
+                            android:gravity="center"
+                            android:text="生活充值"
+                            android:textColor="@color/color_202023"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_tab2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/circle_ffd900">
+
+                            <ImageView
+                                android:id="@+id/iv_tab2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/icon_game" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/iv_tab1"
+                            android:layout_marginTop="6dp"
+                            android:gravity="center"
+                            android:text="游戏点卷"
+                            android:textColor="@color/color_202023"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_tab3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/circle_cf333333">
+
+                            <ImageView
+                                android:id="@+id/iv_tab3"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/icon_phone" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/iv_tab1"
+                            android:layout_marginTop="6dp"
+                            android:gravity="center"
+                            android:text="手机数码"
+                            android:textColor="@color/color_202023"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_FFFFFF"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="10dp"
+                    app:layout_scrollFlags="scroll">
+
+                    <LinearLayout
+                        android:id="@+id/ll_tab4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/circle_ffd900">
+
+                            <ImageView
+                                android:id="@+id/iv_tab4"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/icon_home_people" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/iv_tab1"
+                            android:layout_marginTop="6dp"
+                            android:gravity="center"
+                            android:text="手办模型"
+                            android:textColor="@color/color_202023"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_tab5"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/circle_cf333333">
+
+                            <ImageView
+                                android:id="@+id/iv_tab5"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/icon_lipstick" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/iv_tab1"
+                            android:layout_marginTop="6dp"
+                            android:gravity="center"
+                            android:text="美妆好物"
+                            android:textColor="@color/color_202023"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_tab6"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/circle_ffd900">
+
+                            <ImageView
+                                android:id="@+id/iv_tab6"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/icon_store" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/iv_tab1"
+                            android:layout_marginTop="6dp"
+                            android:gravity="center"
+                            android:text="生活百货"
+                            android:textColor="@color/color_202023"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@color/color_FFFFFF"
+                    app:layout_scrollFlags="scroll" />
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="top"
+                        android:background="@color/color_FFFFFF"
+                        app:tabIndicatorHeight="0dp"
+                        app:tabMode="scrollable"
+                        app:tabSelectedTextColor="@color/color_FFD900"
+                        app:tabTextColor="@color/color_333333" />
+
+                </androidx.viewpager.widget.ViewPager>
+
+            </androidx.core.widget.NestedScrollView>
 
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

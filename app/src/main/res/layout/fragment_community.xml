@@ -211,35 +211,42 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.core.widget.NestedScrollView
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/vp_topic"
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:fillViewport="true">
 
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tab_layout"
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/vp_topic"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_gravity="top"
-                    android:layout_marginBottom="8dp"
-                    app:tabIndicatorColor="@color/color_FFD900"
-                    app:tabIndicatorGravity="bottom"
-                    app:tabIndicatorHeight="1dp"
-                    app:tabMaxWidth="0dp"
-                    app:tabMode="fixed"
-                    app:tabSelectedTextColor="@color/color_FFD900"
-                    app:tabTextAppearance="@style/MyTabTextStyle"
-                    app:tabTextColor="@color/color_333333" />
+                    android:layout_height="match_parent">
 
-            </androidx.viewpager.widget.ViewPager>
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_gravity="top"
+                        android:layout_marginBottom="8dp"
+                        app:tabIndicatorColor="@color/color_FFD900"
+                        app:tabIndicatorGravity="bottom"
+                        app:tabIndicatorHeight="1dp"
+                        app:tabMaxWidth="0dp"
+                        app:tabMode="fixed"
+                        app:tabSelectedTextColor="@color/color_FFD900"
+                        app:tabTextAppearance="@style/MyTabTextStyle"
+                        app:tabTextColor="@color/color_333333" />
 
-        </androidx.core.widget.NestedScrollView>
+                </androidx.viewpager.widget.ViewPager>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -30,6 +30,7 @@ public class MainHomeBannerAdapter extends BannerAdapter<HomeContentDTO.DataBean
     }
 
     public void updataDatas(List<HomeContentDTO.DataBean.HomeAdvertiseListBean> datas) {
+        mDatas.clear();
         mDatas.addAll(datas);
         notifyDataSetChanged();
     }

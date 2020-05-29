@@ -1,15 +1,11 @@
 package com.example.patshopclient.home.activity
 
 import android.content.DialogInterface
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.util.Log
 import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.blankj.utilcode.util.LogUtils
 import com.example.android_patshopclient.R
 import com.example.lib_http.entity.home.TopicListDTO
 import com.example.lib_http.pojo.TopicPOJO
@@ -26,10 +22,8 @@ import com.luck.picture.lib.entity.LocalMedia
 import com.luck.picture.lib.listener.OnResultCallbackListener
 import kotlinx.android.synthetic.main.activity_post_topic.*
 import kotlinx.android.synthetic.main.common_toolbar.*
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 
@@ -57,6 +51,16 @@ class PostTopicActivity : BaseMvvmActivity<CommunityViewModel>() {
     override fun initListener() {
         super.initListener()
         topicAlbumAdapter.addChildClickViewIds(R.id.ll_album, R.id.iv_close)
+        ll_topic_type.setOnClickListener {
+            MaterialAlertDialogBuilder(context)
+                    .setTitle("话题分类")
+                    .setSingleChoiceItems(topicTypeList.toTypedArray(), 0) { dialogInterface: DialogInterface, i: Int ->
+                        tv_select_topic_type.text = topicTypeList[i]
+                        tv_select_topic_type.visibility = View.VISIBLE
+                        dialogInterface.dismiss()
+                    }.create().show()
+        }
+
         ll_topic_sec_type.setOnClickListener {
             if (topicSecTypeList.isNullOrEmpty()) return@setOnClickListener
             var topicArray = topicSecTypeList.map { it.secTopicName }
@@ -65,15 +69,6 @@ class PostTopicActivity : BaseMvvmActivity<CommunityViewModel>() {
                     .setSingleChoiceItems(topicArray.toTypedArray(), 0) { dialogInterface: DialogInterface, i: Int ->
                         tv_select_topic_sec_type.text = topicArray[i]
                         tv_select_topic_sec_type.visibility = View.VISIBLE
-                        dialogInterface.dismiss()
-                    }.create().show()
-        }
-        ll_topic_type.setOnClickListener {
-            MaterialAlertDialogBuilder(context)
-                    .setTitle("话题分类")
-                    .setSingleChoiceItems(topicTypeList.toTypedArray(), 0) { dialogInterface: DialogInterface, i: Int ->
-                        tv_select_topic_type.text = topicTypeList[i]
-                        tv_select_topic_type.visibility = View.VISIBLE
                         dialogInterface.dismiss()
                     }.create().show()
         }

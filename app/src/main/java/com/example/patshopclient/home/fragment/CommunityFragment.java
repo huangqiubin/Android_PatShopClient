@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,6 +21,9 @@ import com.example.patshopclient.home.adapter.CommunityTopicViewPagerAdapter;
 import com.example.patshopclient.home.factory.CommunityViewModelFactory;
 import com.example.patshopclient.home.viewmodel.CommunityViewModel;
 import com.google.android.material.tabs.TabLayout;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +49,8 @@ public class CommunityFragment extends BaseMvvmFragment<CommunityViewModel> {
         tabTitleList.addAll(ArrayUtils.asArrayList(titles));
     }
 
+    private SmartRefreshLayout refreshLayout;
+
     @Override
     public int onBindLayout() {
         return R.layout.fragment_community;
@@ -61,6 +67,7 @@ public class CommunityFragment extends BaseMvvmFragment<CommunityViewModel> {
         communityTopicViewPagerAdapter = new CommunityTopicViewPagerAdapter(getChildFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, fragmentList, tabTitleList);
         vpTopic.setAdapter(communityTopicViewPagerAdapter);
         tabLayout.setupWithViewPager(vpTopic);
+        refreshLayout = rootView.findViewById(R.id.refresh_layout);
     }
 
     @Override
@@ -101,6 +108,16 @@ public class CommunityFragment extends BaseMvvmFragment<CommunityViewModel> {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), TestActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                for (Fragment fragment : fragmentList) {
+                    refreshLayout.finishRefresh(1000);
+                    ((TopicFragment) fragment).initData();
+                }
             }
         });
     }

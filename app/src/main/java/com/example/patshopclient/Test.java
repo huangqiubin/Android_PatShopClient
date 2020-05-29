@@ -4,6 +4,7 @@ package com.example.patshopclient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,14 +39,17 @@ public class Test {
 //        System.out.println((double) num1 / (double) num2);
 //        JSONObject jsonObject = new JSONObject();
 
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("key1", "123");
-        map.put("key2", 1);
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("key1", "123");
-        jsonObject.put("key2", 1);
-        System.out.println(jsonObject);
-        System.out.println(jsonObject.get("key1"));
-        System.out.println(jsonObject.get("key2"));
+//        Map<String, Object> map = new HashMap<String, Object>();
+//        map.put("key1", "123");
+//        map.put("key2", 1);
+//        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("key1", "123");
+//        jsonObject.put("key2", 1);
+//        System.out.println(jsonObject);
+//        System.out.println(jsonObject.get("key1"));
+//        System.out.println(jsonObject.get("key2"));
+        String s = "";
+        String str = s.split(",")[0];
+        System.out.println(str);
     }
 }

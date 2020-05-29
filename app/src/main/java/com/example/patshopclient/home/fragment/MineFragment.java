@@ -1,13 +1,12 @@
 package com.example.patshopclient.home.fragment;
 
-import android.util.Log;
+import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -79,60 +78,25 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
         super.initListener();
 
         //参拍
-        llBidSale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build(PathConfig.BIDSALE).navigation();
-            }
-        });
+        llBidSale.setOnClickListener(v -> ARouter.getInstance().build(PathConfig.BIDSALE).navigation());
 
         //围观
-        llLikeSale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build(PathConfig.ONLOOK).navigation();
-            }
-        });
+        llLikeSale.setOnClickListener(v -> ARouter.getInstance().build(PathConfig.ONLOOK).navigation());
 
         //足迹
-        llTraceSale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build(PathConfig.TRACEFOOT).navigation();
-            }
-        });
+        llTraceSale.setOnClickListener(v -> ARouter.getInstance().build(PathConfig.TRACEFOOT).navigation());
 
         //待发货
-        llGoingSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build(PathConfig.DELIVERY).navigation();
-            }
-        });
+        llGoingSend.setOnClickListener(v -> ARouter.getInstance().build(PathConfig.DELIVERY).navigation());
 
         //待收货
-        llGoingReceive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build(PathConfig.RECEIVE).navigation();
-            }
-        });
+        llGoingReceive.setOnClickListener(v -> ARouter.getInstance().build(PathConfig.RECEIVE).navigation());
 
         //历史订单
-        llHistoryOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build(PathConfig.HISTORICAL_ORDER).navigation();
-            }
-        });
+        llHistoryOrder.setOnClickListener(v -> ARouter.getInstance().build(PathConfig.HISTORICAL_ORDER).navigation());
 
         //商品管理
-        cardSaleManager.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        cardSaleManager.setOnClickListener(v -> ARouter.getInstance().build(PathConfig.MANAGESALE).navigation());
     }
 
     @Override
@@ -150,35 +114,33 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
         return MainViewModelFactory.getInstance(mActivity.getApplication());
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void initViewObservable() {
-        mViewModel.getMineContentLiveEvent().observe(this, new Observer<MineContentDTO>() {
-            @Override
-            public void onChanged(MineContentDTO mineContentDTO) {
-                if (ObjectUtils.isEmpty(mineContentDTO)) {
-                    return;
-                }
-                MineContentDTO.DataBean.MemberDaoBean memberDaoBean = mineContentDTO.getData().getMemberDao();
-                MineContentDTO.DataBean.BidNumPOJOBean bidNumPOJOBean = mineContentDTO.getData().getBidNumPOJO();
-                Glide.with(getContext()).load(ImageConfig.MY_IMAGE_PREFIX + memberDaoBean.getIcon()).placeholder(R.mipmap.avatar_placeholder).centerCrop().into(ivHead);
+        mViewModel.getMineContentLiveEvent().observe(this, mineContentDTO -> {
+            if (ObjectUtils.isEmpty(mineContentDTO)) {
+                return;
+            }
+            MineContentDTO.DataBean.MemberDaoBean memberDaoBean = mineContentDTO.getData().getMemberDao();
+            MineContentDTO.DataBean.BidNumPOJOBean bidNumPOJOBean = mineContentDTO.getData().getBidNumPOJO();
+            Glide.with(this).load(ImageConfig.MY_IMAGE_PREFIX + memberDaoBean.getIcon()).placeholder(R.mipmap.avatar_placeholder).centerCrop().into(ivHead);
 
 
-                tvUserName.setText("账号：" + memberDaoBean.getUsername());
-                tvNickName.setText(memberDaoBean.getNickname());
-                tvSignature.setText("个性签名：" + memberDaoBean.getPersonalizedSignature());
-                tvBidSale.setText(bidNumPOJOBean.getBidNum() + "");
-                tvLikeSale.setText(bidNumPOJOBean.getOnLooks() + "");
-                tvTraceSale.setText(bidNumPOJOBean.getFootPrint() + "");
-                if (ObjectUtils.isNotEmpty(memberDaoBean.getGender())) {
-                    Glide.with(getContext()).load(memberDaoBean.getGender() == 1 ? R.mipmap.woman : R.mipmap.man).placeholder(R.mipmap.icon_placeholer).centerCrop().into(ivSex);
-                    ivSex.setVisibility(View.VISIBLE);
-                }
-                //是管理员
-                if (memberDaoBean.getManager() == 1){
-                    cardSaleManager.setVisibility(View.VISIBLE);
-                }else {
-                    cardSaleManager.setVisibility(View.GONE);
-                }
+            tvUserName.setText("账号：" + memberDaoBean.getUsername());
+            tvNickName.setText(memberDaoBean.getNickname());
+            tvSignature.setText("个性签名：" + memberDaoBean.getPersonalizedSignature());
+            tvBidSale.setText(bidNumPOJOBean.getBidNum() + "");
+            tvLikeSale.setText(bidNumPOJOBean.getOnLooks() + "");
+            tvTraceSale.setText(bidNumPOJOBean.getFootPrint() + "");
+            if (ObjectUtils.isNotEmpty(memberDaoBean.getGender())) {
+                Glide.with(this).load(memberDaoBean.getGender() == 1 ? R.mipmap.woman : R.mipmap.man).placeholder(R.mipmap.icon_placeholer).centerCrop().into(ivSex);
+                ivSex.setVisibility(View.VISIBLE);
+            }
+            //是管理员
+            if (memberDaoBean.getManager() == 1) {
+                cardSaleManager.setVisibility(View.VISIBLE);
+            } else {
+                cardSaleManager.setVisibility(View.GONE);
             }
         });
     }

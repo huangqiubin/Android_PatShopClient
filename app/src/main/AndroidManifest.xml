@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.patshopclient.home.activity.ManageSaleActivity"></activity>
+        <activity android:name="com.example.patshopclient.home.activity.AddProductActivity"></activity>
+        <activity android:name="com.example.patshopclient.home.activity.ManageSaleActivity" />
         <activity android:name="com.example.patshopclient.home.activity.TraceActivity" />
         <activity android:name="com.example.patshopclient.home.activity.OnLookActivity" />
         <activity android:name="com.example.patshopclient.home.activity.BidSaleActivity" />

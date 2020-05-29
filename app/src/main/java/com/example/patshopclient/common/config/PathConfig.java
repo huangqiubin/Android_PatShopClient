@@ -12,4 +12,6 @@ public class PathConfig {
     public static final String HISTORICAL_ORDER = "/mine/activity/historical_order";//历史订单
     public static final String RECEIVE = "/home/activity/receive";//待收货
     public static final String PRODUCTDETAIL = "/home/activity/product_detail";//商品详情
+    public static final String MANAGESALE = "/home/activity/manage_sale";//商品详情
+    public static final String ADDPRODUCT = "/home/activity/add_product";//商品详情
 }

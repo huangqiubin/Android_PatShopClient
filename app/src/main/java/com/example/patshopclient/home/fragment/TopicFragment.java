@@ -54,7 +54,9 @@ public class TopicFragment extends BaseMvvmFragment<CommunityViewModel> {
 
     @Override
     public void initData() {
-        mViewModel.httpGetHotTopic();
+        if (ObjectUtils.isNotEmpty(mViewModel)){
+            mViewModel.httpGetHotTopic();
+        }
     }
 
     @Override
