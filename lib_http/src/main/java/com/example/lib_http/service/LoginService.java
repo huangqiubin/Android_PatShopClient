@@ -2,7 +2,9 @@ package com.example.lib_http.service;
 
 import com.example.lib_http.config.API;
 import com.example.lib_http.entity.home.LoginDTO;
+import com.example.lib_http.entity.home.LogoutDTO;
 
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -15,5 +17,8 @@ public interface LoginService {
 
     @GET(API.URL_HOST_PATSHOP + "/login/login")
     Call<LoginDTO> getLogin(@Query("username") String username, @Query("password") String password);
+
+    @GET(API.URL_HOST_PATSHOP + "/login/logout")
+    Observable<LogoutDTO> getLogout();
 
 }

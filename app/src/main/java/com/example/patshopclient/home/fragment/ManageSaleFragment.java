@@ -31,9 +31,7 @@ public class ManageSaleFragment extends BaseMvvmFragment<ManageSaleViewModel> {
     public void initView(View view) {
         RecyclerView recyclerView = rootView.findViewById(R.id.recycler);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
-        gridLayoutManager.setSmoothScrollbarEnabled(true);
         recyclerView.setLayoutManager(gridLayoutManager);
-        recyclerView.setNestedScrollingEnabled(false);
         bidProductAdapter = new BidProductAdapter(getContext(), null);
         bidProductAdapter.setEmptyView(new NoDataView(getContext(), null));
         recyclerView.setAdapter(bidProductAdapter);

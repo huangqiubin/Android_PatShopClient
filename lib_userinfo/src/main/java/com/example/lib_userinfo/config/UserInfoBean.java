@@ -48,7 +48,11 @@ public class UserInfoBean {
     }
 
     public String getSessionId() {
-        return SPUtils.getInstance(SPConstant.USER_LOGIN_FILE).getString(SPConstant.USER_SESSIONID, "");
+        return SPUtils.getInstance(SPConstant.USER_LOGIN_FILE).getString(SPConstant.USER_SESSION_ID, "");
+    }
+
+    public int getUserIdentity() {
+        return SPUtils.getInstance(SPConstant.USER_LOGIN_FILE).getInt(SPConstant.USER_IDENTITY, 0);
     }
 
     public void saveUid(String uid) {
@@ -93,13 +97,17 @@ public class UserInfoBean {
 
     public void saveSessionId(String sessionId) {
         if (ObjectUtils.isNotEmpty(sessionId)) {
-            SPUtils.getInstance(SPConstant.USER_LOGIN_FILE).put(SPConstant.USER_SESSIONID, sessionId);
+            SPUtils.getInstance(SPConstant.USER_LOGIN_FILE).put(SPConstant.USER_SESSION_ID, sessionId);
         } else {
-            SPUtils.getInstance(SPConstant.USER_LOGIN_FILE).remove(SPConstant.USER_SESSIONID);
+            SPUtils.getInstance(SPConstant.USER_LOGIN_FILE).remove(SPConstant.USER_SESSION_ID);
         }
     }
 
     public void clearUserInfo() {
         SPUtils.getInstance(SPConstant.USER_LOGIN_FILE).clear(true);
+    }
+
+    public void saveUserIdentity(int userIdentity) {
+        SPUtils.getInstance(SPConstant.USER_LOGIN_FILE).put(SPConstant.USER_IDENTITY, userIdentity);
     }
 }

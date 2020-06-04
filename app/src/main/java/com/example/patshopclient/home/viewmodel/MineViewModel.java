@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.example.lib_http.entity.home.BidSaleDTO;
 import com.example.lib_http.entity.home.BidSaleListDTO;
+import com.example.lib_http.entity.home.LogoutDTO;
 import com.example.lib_http.entity.home.MineContentDTO;
 import com.example.lib_http.entity.home.OnLookListDTO;
 import com.example.patshopclient.common.event.SingleLiveEvent;
@@ -26,6 +27,7 @@ public class MineViewModel extends BaseViewModel<MineModel> {
     private SingleLiveEvent<MineContentDTO> mineContentLiveEvent;
     private SingleLiveEvent<BidSaleDTO> bidSaleListLiveEvent;
     private SingleLiveEvent<OnLookListDTO> onLookListLiveEvent;
+    private SingleLiveEvent<LogoutDTO> logoutLiveEvent;
 
     public MineViewModel(@NonNull Application application, MineModel model) {
         super(application, model);
@@ -102,6 +104,30 @@ public class MineViewModel extends BaseViewModel<MineModel> {
         });
     }
 
+    public void getLogout(){
+        mModel.getLogout().subscribe(new Observer<LogoutDTO>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(LogoutDTO logoutDTO) {
+                getLogoutLiveEvent().postValue(logoutDTO);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
+
     public SingleLiveEvent<OnLookListDTO> getOnLookListLiveEvent() {
         return onLookListLiveEvent = createLiveData(onLookListLiveEvent);
     }
@@ -112,6 +138,10 @@ public class MineViewModel extends BaseViewModel<MineModel> {
 
     public SingleLiveEvent<BidSaleDTO> getBidSaleListLiveEvent() {
         return bidSaleListLiveEvent = createLiveData(bidSaleListLiveEvent);
+    }
+
+    public SingleLiveEvent<LogoutDTO> getLogoutLiveEvent(){
+        return logoutLiveEvent = createLiveData(logoutLiveEvent);
     }
 
 }

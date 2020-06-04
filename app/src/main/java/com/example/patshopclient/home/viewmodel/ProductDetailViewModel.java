@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 
 import com.example.lib_http.entity.home.BidProductResultDTO;
+import com.example.lib_http.entity.home.OffProductDTO;
 import com.example.lib_http.entity.home.ProductDetailDTO;
 import com.example.patshopclient.common.event.SingleLiveEvent;
 import com.example.patshopclient.common.mvvm.viewmodel.BaseViewModel;
@@ -23,6 +24,7 @@ public class ProductDetailViewModel extends BaseViewModel<ProductDetailModel> {
     private SingleLiveEvent<ProductDetailDTO> productDetailLiveEvent;
     public SingleLiveEvent<Double> bidPrice = new SingleLiveEvent<>();
     private SingleLiveEvent<BidProductResultDTO> bidProductLiveEvent;
+    private SingleLiveEvent<OffProductDTO> offProductLiveEvent;
 
 
     public ProductDetailViewModel(@NonNull Application application, ProductDetailModel model) {
@@ -77,6 +79,30 @@ public class ProductDetailViewModel extends BaseViewModel<ProductDetailModel> {
         });
     }
 
+    public void offProduct(int productId) {
+        mModel.offProduct(productId).subscribe(new Observer<OffProductDTO>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(OffProductDTO offProductDTO) {
+                getOffProductLiveEvent().postValue(offProductDTO);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
+
 
     public SingleLiveEvent<ProductDetailDTO> getProductDetailLiveEvent() {
         return productDetailLiveEvent = createLiveData(productDetailLiveEvent);
@@ -86,4 +112,7 @@ public class ProductDetailViewModel extends BaseViewModel<ProductDetailModel> {
         return bidProductLiveEvent = createLiveData(bidProductLiveEvent);
     }
 
+    public SingleLiveEvent<OffProductDTO> getOffProductLiveEvent() {
+        return offProductLiveEvent = createLiveData(offProductLiveEvent);
+    }
 }

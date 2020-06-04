@@ -4,13 +4,17 @@ import android.app.Application;
 
 import com.example.lib_http.RetrofitManager;
 import com.example.lib_http.entity.home.BidSaleDTO;
+import com.example.lib_http.entity.home.LogoutDTO;
 import com.example.lib_http.entity.home.MineContentDTO;
 import com.example.lib_http.entity.home.OnLookListDTO;
 import com.example.lib_http.http.RxAdapter;
+import com.example.lib_http.service.LoginService;
 import com.example.lib_http.service.MineContentService;
 import com.example.patshopclient.common.mvvm.model.BaseModel;
 
 import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by qiubin on 2020-03-15.
@@ -18,11 +22,13 @@ import io.reactivex.Observable;
  */
 public class MineModel extends BaseModel {
 
-    MineContentService mineContentService;
+    private MineContentService mineContentService;
+    private LoginService loginService;
 
     public MineModel(Application application) {
         super(application);
         mineContentService = RetrofitManager.getInstance().getMineContentService();
+        loginService = RetrofitManager.getInstance().getLoginService();
     }
 
     public Observable<MineContentDTO> getMineContent(String userName) {
@@ -35,5 +41,9 @@ public class MineModel extends BaseModel {
 
     public Observable<OnLookListDTO> getOnLookList(String userName) {
         return mineContentService.getOnLookList(userName).compose(RxAdapter.schedulersTransformer()).compose(RxAdapter.exceptionTransformer());
+    }
+
+    public Observable<LogoutDTO> getLogout() {
+        return loginService.getLogout().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 }

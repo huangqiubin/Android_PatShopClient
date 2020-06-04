@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cl_mine"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar_mine"
@@ -22,7 +23,7 @@
                 android:id="@+id/iv_head"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:src="@mipmap/avatar_placeholder"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -33,7 +34,7 @@
                 android:id="@+id/tv_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="14dp"
                 android:text="昵称"
                 android:textColor="@color/color_333333"
@@ -46,7 +47,7 @@
                 android:id="@+id/iv_sex"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginLeft="6dp"
+                android:layout_marginStart="6dp"
                 android:scaleType="centerCrop"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_nickname"
@@ -59,7 +60,7 @@
                 android:id="@+id/tv_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:text="账号"
                 android:textColor="@color/color_333333"
@@ -243,13 +244,14 @@
                         android:id="@+id/ll_going_send"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="35dp"
+                        android:layout_marginStart="35dp"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
                         android:orientation="vertical"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toLeftOf="@+id/ll_going_receive"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_order">
+                        app:layout_constraintTop_toBottomOf="@+id/tv_order"
+                        tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             android:layout_width="50dp"
@@ -300,7 +302,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:layout_marginRight="35dp"
+                        android:layout_marginEnd="35dp"
                         android:gravity="center"
                         android:orientation="vertical"
                         app:layout_constraintLeft_toRightOf="@+id/ll_going_receive"
@@ -333,9 +335,9 @@
                 android:id="@+id/card_location"
                 android:layout_width="0dp"
                 android:layout_height="85dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="7.5dp"
+                android:layout_marginEnd="7.5dp"
                 app:cardBackgroundColor="@color/color_D6B5EA"
                 app:cardCornerRadius="6dp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -364,9 +366,9 @@
                 android:id="@+id/card_service"
                 android:layout_width="0dp"
                 android:layout_height="85dp"
-                android:layout_marginLeft="7.5dp"
+                android:layout_marginStart="7.5dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginEnd="15dp"
                 app:cardBackgroundColor="@color/color_AACCEA"
                 app:cardCornerRadius="6dp"
                 app:layout_constraintLeft_toRightOf="@+id/card_location"
@@ -392,12 +394,12 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/card_setting"
+                android:id="@+id/card_quit"
                 android:layout_width="0dp"
                 android:layout_height="85dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="7.5dp"
+                android:layout_marginEnd="7.5dp"
                 app:cardBackgroundColor="@color/color_CAF982"
                 app:cardCornerRadius="6dp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -416,7 +418,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|bottom"
                     android:layout_marginBottom="10dp"
-                    android:text="设置"
+                    android:text="退出登录"
                     android:textColor="@color/color_202023"
                     android:textSize="14sp" />
 
@@ -426,12 +428,12 @@
                 android:id="@+id/card_contact"
                 android:layout_width="0dp"
                 android:layout_height="85dp"
-                android:layout_marginLeft="7.5dp"
+                android:layout_marginStart="7.5dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginEnd="15dp"
                 app:cardBackgroundColor="@color/color_FACD91"
                 app:cardCornerRadius="6dp"
-                app:layout_constraintLeft_toRightOf="@+id/card_setting"
+                app:layout_constraintLeft_toRightOf="@+id/card_quit"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_service">
 
@@ -457,15 +459,15 @@
                 android:id="@+id/card_sale_manage"
                 android:layout_width="0dp"
                 android:layout_height="85dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="7.5dp"
+                android:layout_marginEnd="7.5dp"
                 android:visibility="gone"
                 app:cardBackgroundColor="@color/color_C46DB8C2"
                 app:cardCornerRadius="6dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/card_contact"
-                app:layout_constraintTop_toBottomOf="@+id/card_setting"
+                app:layout_constraintTop_toBottomOf="@+id/card_quit"
                 tools:visibility="visible">
 
                 <ImageView

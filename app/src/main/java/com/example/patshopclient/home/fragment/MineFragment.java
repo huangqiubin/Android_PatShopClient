@@ -5,11 +5,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.ObjectUtils;
 import com.bumptech.glide.Glide;
 import com.example.android_patshopclient.R;
@@ -20,6 +22,7 @@ import com.example.patshopclient.common.mvvm.BaseMvvmFragment;
 import com.example.patshopclient.common.config.ImageConfig;
 import com.example.patshopclient.home.factory.MainViewModelFactory;
 import com.example.patshopclient.home.viewmodel.MineViewModel;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /**
  * Created by qiubin on 2020-03-15.
@@ -42,6 +45,7 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
     private LinearLayout llGoingReceive;
     private LinearLayout llHistoryOrder;
     private CardView cardSaleManager;
+    private CardView cardQuit;
 
     @Override
     public int onBindLayout() {
@@ -65,6 +69,7 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
         llGoingReceive = rootView.findViewById(R.id.ll_going_receive);
         llHistoryOrder = rootView.findViewById(R.id.ll_history_order);
         cardSaleManager = rootView.findViewById(R.id.card_sale_manage);
+        cardQuit = rootView.findViewById(R.id.card_quit);
     }
 
     @Override
@@ -97,6 +102,15 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
 
         //商品管理
         cardSaleManager.setOnClickListener(v -> ARouter.getInstance().build(PathConfig.MANAGESALE).navigation());
+
+        //退出登陆
+        cardQuit.setOnClickListener(v -> new MaterialAlertDialogBuilder(mActivity)
+                .setTitle("你确定要退出吗？")
+                .setNegativeButton("取消", (dialog, which) -> dialog.cancel())
+                .setPositiveButton("确定", (dialog, which) -> {
+                    mViewModel.getLogout();
+                    dialog.cancel();
+                }).create().show());
     }
 
     @Override
@@ -143,6 +157,16 @@ public class MineFragment extends BaseMvvmFragment<MineViewModel> {
                 cardSaleManager.setVisibility(View.GONE);
             }
         });
+
+        mViewModel.getLogoutLiveEvent().observe(this, logoutDTO -> {
+            if (ObjectUtils.isEmpty(logoutDTO.getData())) {
+                Toast.makeText(getContext(), "网络发生了错误", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            ActivityUtils.finishAllActivities();
+            ARouter.getInstance().build(PathConfig.LOGIN).navigation();
+        });
     }
 
 }
+

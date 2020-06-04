@@ -2,6 +2,7 @@ package com.example.lib_http.service;
 
 import com.example.lib_http.config.API;
 import com.example.lib_http.entity.home.ManageSaleDTO;
+import com.example.lib_http.entity.home.OffProductDTO;
 import com.example.lib_http.entity.home.ResponceBodyDTO;
 
 import java.util.List;
@@ -36,5 +37,7 @@ public interface ManageSaleContentService {
                                            @Query("markUp") double markUp, @Query("marketPrice") double marketPrice,
                                            @Part List<MultipartBody.Part> pics, @Part List<MultipartBody.Part> albumsPics);
 
+    @GET(API.URL_HOST_PATSHOP +"/manage_sale/off_product")
+    Observable<OffProductDTO> offProduct(@Query("productId") int productId);
 
 }

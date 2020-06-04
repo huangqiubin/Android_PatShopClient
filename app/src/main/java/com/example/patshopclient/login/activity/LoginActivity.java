@@ -18,6 +18,7 @@ import com.example.lib_http.entity.home.LoginDTO;
 import com.example.lib_http.service.LoginService;
 import com.example.patshopclient.common.BaseActivity;
 import com.example.lib_userinfo.config.UserInfoBean;
+import com.example.patshopclient.common.config.PathConfig;
 import com.example.patshopclient.home.activity.MainActivity;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -25,7 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-@Route(path = "/login/activity/login_activity")
+@Route(path = PathConfig.LOGIN)
 public class LoginActivity extends BaseActivity {
 
     @Autowired(name = "fromRequest")
@@ -84,10 +85,15 @@ public class LoginActivity extends BaseActivity {
                     return;
                 }
                 LoginDTO loginDTO = response.body();
-                String sessionId = loginDTO.getData();
+
+                String sessionId = loginDTO.getData().getSerializable();
+                LoginDTO.DataBean.UmsMemberDaoBean memberBean = loginDTO.getData().getUmsMemberDao();
                 UserInfoBean.getInstance().clearUserInfo();
                 UserInfoBean.getInstance().saveUname(username);
                 UserInfoBean.getInstance().saveSessionId(sessionId);
+                UserInfoBean.getInstance().saveUserIdentity(memberBean.getManager());
+                UserInfoBean.getInstance().saveUphone(memberBean.getPhone());
+                UserInfoBean.getInstance().saveUavator(memberBean.getIcon());
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
 

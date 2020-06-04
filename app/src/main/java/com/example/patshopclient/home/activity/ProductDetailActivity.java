@@ -3,10 +3,13 @@ package com.example.patshopclient.home.activity;
 import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.widget.PopupMenu;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,11 +43,12 @@ import java.util.List;
 import java.util.Objects;
 
 @Route(path = PathConfig.PRODUCTDETAIL)
-public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewModel> {
+public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewModel> implements PopupMenu.OnMenuItemClickListener {
 
     public static final String PRODUCTID = "productId";
     private int productId;
     private ImageView ivBack;
+    private ImageView ivMore;
     private Banner banner;
     private TextView tvProductName;
     private WPTShapeTextView btnOnlookers;
@@ -67,6 +71,8 @@ public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewMod
     private TextView tvShowBidTime;
     private TextView tvDecreaseBidTime;
     private TextView btnBid;
+    private View menuView;
+
 
     @Override
     public int onBindLayout() {
@@ -90,6 +96,8 @@ public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewMod
         tvMarketPrice2 = findViewById(R.id.tv_market_price2);
         tvMarkUp = findViewById(R.id.tv_markup);
         tvRefundRate = findViewById(R.id.tv_refund_rate);
+        ivMore = findViewById(R.id.iv_more);
+        ivMore.setVisibility(UserInfoBean.getInstance().getUserIdentity() == 1 ? View.VISIBLE : View.GONE);
         //出价成员列表
         RecyclerView rvBid = findViewById(R.id.recycler_bid);
         rvBid.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -214,6 +222,33 @@ public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewMod
             String userName = UserInfoBean.getInstance().getUname();
             mViewModel.httpBidProduct(productId, bidCoin, userName);
         });
+        ivMore.setOnClickListener(v -> {
+            if (ObjectUtils.isEmpty(productId)) {
+                Toast.makeText(this, "此商品发生了一些错误", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            PopupMenu popup = new PopupMenu(this, v);
+            // This activity implements OnMenuItemClickListener
+            popup.setOnMenuItemClickListener(this);
+            popup.inflate(R.menu.product_detail);
+            popup.show();
+        });
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        if (item.getItemId() == R.id.off_product) {
+            new MaterialAlertDialogBuilder(this)
+                    .setTitle("你确定要下架此商品么？")
+                    .setPositiveButton("是的", (dialog, which) -> {
+                        mViewModel.offProduct(productId);
+                        dialog.dismiss();
+                    })
+                    .setNegativeButton("取消", (dialog, which) -> dialog.dismiss())
+                    .create().show();
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -291,6 +326,7 @@ public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewMod
                 bidMemberAdapter.setNewData(bidMemberList);
             }
         });
+
         mViewModel.bidPrice.observe(this, d -> {
             DecimalFormat decimalFormat = new DecimalFormat("#.00");
             //出价价格
@@ -298,6 +334,7 @@ public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewMod
                     .appendLine(decimalFormat.format(d) + "/拍币").setFontSize(12, true).create();
 
         });
+
         mViewModel.getBidProductLiveEvent().observe(this, bidProductResultDTO -> {
             if (ObjectUtils.isEmpty(bidProductResultDTO)) {
                 new MaterialAlertDialogBuilder(getContext()).setTitle("网络发生了点错误，请稍后重试")
@@ -327,7 +364,15 @@ public class ProductDetailActivity extends BaseMvvmActivity<ProductDetailViewMod
                         }).create().show();
             }
         });
+
+        mViewModel.getOffProductLiveEvent().observe(this, offProductDTO -> {
+            if (ObjectUtils.isEmpty(offProductDTO.getData()) || offProductDTO.getData() != 1) {
+                return;
+            }
+            Toast.makeText(this, "下架商品成功", Toast.LENGTH_SHORT).show();
+        });
     }
+
 
 //    /**
 //     * type = 0 商品详情
